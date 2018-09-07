@@ -1,0 +1,28 @@
+package com.company.student;
+
+import org.aspectj.lang.ProceedingJoinPoint;
+
+public class CommonAOP {
+
+	public Object loggerAOP(ProceedingJoinPoint joinPoint) throws Throwable{
+		String methodname = joinPoint.getSignature().toString();
+		System.out.println("system start");
+		
+		long st = System.currentTimeMillis();
+		
+		try {
+			
+			Object obj = joinPoint.proceed();//해당 메소스를 실행
+			return obj;
+		} finally {
+			long et = System.currentTimeMillis();	
+			
+		}
+		
+		
+		
+		
+		
+	}
+	
+}

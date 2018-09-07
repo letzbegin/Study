@@ -1,0 +1,20 @@
+package com.company.student;
+
+import org.aspectj.lang.ProceedingJoinPoint;
+
+public class CommonAOP {
+
+	public Object loggerAOP(ProceedingJoinPoint joinPoint) throws Throwable{
+		String methodname = joinPoint.getSignature().toString();
+		System.out.println("system start");
+		
+		long st = System.currentTimeMillis();
+		
+		
+		
+		return joinPoint;
+		
+		
+	}
+	
+}
