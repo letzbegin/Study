@@ -1,0 +1,6 @@
+package com.company.student;
+
+public interface parentclass {
+
+	void name();
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.omg.PortableInterceptor.USER_EXCEPTION"/>
+<fullyQualifiedTypeName name="javax.sound.midi.Synthesizer"/>
+<fullyQualifiedTypeName name="org.springframework.context.support.AbstractApplicationContext"/>
+<fullyQualifiedTypeName name="org.springframework.context.support.GenericXmlApplicationContext"/>
+<fullyQualifiedTypeName name="com.company.pencil.Pencil"/>
+</qualifiedTypeNameHistroy>

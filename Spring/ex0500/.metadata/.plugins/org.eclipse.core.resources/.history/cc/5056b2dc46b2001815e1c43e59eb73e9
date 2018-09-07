@@ -1,0 +1,11 @@
+package com.company.pencil;
+
+public class Pencil6BwithEraser implements Pencil{
+
+	@Override
+	public void use() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.springframework.context.ConfigurableApplicationContext"/>
+<fullyQualifiedTypeName name="org.springframework.core.env.ConfigurableEnvironment"/>
+<fullyQualifiedTypeName name="org.springframework.core.env.MutablePropertySources"/>
+<fullyQualifiedTypeName name="java.util.Properties"/>
+<fullyQualifiedTypeName name="org.springframework.core.env.PropertiesPropertySource"/>
+<fullyQualifiedTypeName name="org.springframework.core.io.support.ResourcePropertySource"/>
+<fullyQualifiedTypeName name="org.hibernate.cfg.Environment"/>
+<fullyQualifiedTypeName name="org.springframework.context.EnvironmentAware"/>
+<fullyQualifiedTypeName name="org.springframework.context.support.AbstractApplicationContext"/>
+<fullyQualifiedTypeName name="org.springframework.context.support.GenericApplicationContext"/>
+<fullyQualifiedTypeName name="org.springframework.context.support.GenericXmlApplicationContext"/>
+<fullyQualifiedTypeName name="com.company.admin.AdminConnection"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.InitializingBean"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.DisposableBean"/>
+</qualifiedTypeNameHistroy>

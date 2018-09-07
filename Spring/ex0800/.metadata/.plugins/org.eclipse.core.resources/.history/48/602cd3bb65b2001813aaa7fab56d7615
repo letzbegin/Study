@@ -1,0 +1,30 @@
+package com.company.admin;
+
+import java.io.IOException;
+
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+import org.springframework.core.env.ConfigurableEnvironment;
+import org.springframework.core.env.MutablePropertySources;
+import org.springframework.core.env.PropertiesPropertySource;
+import org.springframework.core.io.support.ResourcePropertySource;
+
+public class MainClass throw IOException {
+
+	public static void main(String[] args) {
+	ConfigurableApplicationContext ctx = new GenericXmlApplicationContext();
+	ConfigurableEnvironment env = ctx.getEnvironment();
+	
+	MutablePropertySources mutablePropertySources = env.getPropertySources();
+	
+	try {
+		mutablePropertySources.addLast(new ResourcePropertySource("classpath:admin.properties"));
+	} catch (e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+		
+		
+	}
+}

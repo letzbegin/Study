@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	>
+<!-- /**	프리픽스 설정  */ -->
+	
+	
+	<bean id="student3" class="com.company.family.Student">
+		<constructor-arg>
+			<value>홍길자</value>
+		</constructor-arg>
+	
+		<constructor-arg>
+			<value>30</value>
+		</constructor-arg>
+	
+		<constructor-arg>
+		<list>
+			<value>수수수영</value>
+			<value>요리이이이</value>
+		</list>
+		</constructor-arg>
+	
+	
+		<property name="height">
+		<value>12280</value>
+		</property>	
+		<property name="weight">
+		<value>10220</value>
+		</property>	
+	
+	</bean>
+	
+<!-- 	<bean id="family" class="com.company.family.Family">  -->
+<!-- 		<constructor-arg> -->
+<!-- 			<value>홍아빠</value>		 -->
+<!-- 		</constructor-arg> -->
+		
+<!-- 		<constructor-arg> -->
+<!-- 			<value>홍엄만</value>		 -->
+<!-- 		</constructor-arg> -->
+		
+<!-- 		<property name="bro"> -->
+<!-- 		<value>홍오빠</value> -->
+		
+<!-- 		</property> -->
+<!-- 		<property name="sis"> -->
+<!-- 		<value>홍누나</value> -->
+		
+<!-- 		</property> -->
+<!-- 	</bean> -->
+	<bean id="family" class="com.company.family.Family" c:papa="홍아빠" c:mama="홍엄마" p:sis="홍누나"> 
+	
+	
+	
+	
+	</bean>
+	
+	
+	
+</beans>

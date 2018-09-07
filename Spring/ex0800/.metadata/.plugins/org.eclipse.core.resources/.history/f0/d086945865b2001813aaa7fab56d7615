@@ -1,0 +1,15 @@
+package com.company.admin;
+
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+import org.springframework.core.env.ConfigurableEnvironment;
+
+public class MainClass {
+
+	public static void main(String[] args) {
+	ConfigurableApplicationContext ctx = new GenericXmlApplicationContext();
+	ConfigurableEnvironment env = ctx.getEnvironment();
+		
+		
+	}
+}

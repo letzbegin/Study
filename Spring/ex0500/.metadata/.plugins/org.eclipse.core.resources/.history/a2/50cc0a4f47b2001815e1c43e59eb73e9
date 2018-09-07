@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="pencil" class="com.company.pencil.Pencil">
+		
+	</bean>
+	
+	<bean id="pencil4b" class="com.company.pencil.Pencil4B">
+	
+	
+	</bean>
+	
+	<bean id="pencil6b" class="com.company.pencil.Pencil6B">
+	
+	
+	</bean>
+	
+	<bean id="pencil6BwithEraser" class="com.company.pencil.Pencil6BwithEraser">
+	
+	
+	</bean>
+	
+	
+	
+	
+
+</beans>

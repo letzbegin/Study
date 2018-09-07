@@ -1,0 +1,13 @@
+package com.company.admin;
+
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+public class MainClass {
+
+	public static void main(String[] args) {
+	ConfigurableApplicationContext ctx = new GenericXmlApplicationContext();
+		
+		
+	}
+}

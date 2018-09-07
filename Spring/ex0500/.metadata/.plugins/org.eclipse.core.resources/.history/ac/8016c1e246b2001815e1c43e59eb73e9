@@ -1,0 +1,11 @@
+package com.company.pencil;
+
+public class Pencil4B implements Pencil{
+
+	@Override
+	public void use() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

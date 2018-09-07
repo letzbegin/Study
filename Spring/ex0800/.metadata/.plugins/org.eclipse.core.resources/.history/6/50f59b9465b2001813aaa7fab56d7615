@@ -1,0 +1,23 @@
+package com.company.admin;
+
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+import org.springframework.core.env.ConfigurableEnvironment;
+import org.springframework.core.env.MutablePropertySources;
+import org.springframework.core.env.PropertiesPropertySource;
+import org.springframework.core.io.support.ResourcePropertySource;
+
+public class MainClass {
+
+	public static void main(String[] args) {
+	ConfigurableApplicationContext ctx = new GenericXmlApplicationContext();
+	ConfigurableEnvironment env = ctx.getEnvironment();
+	
+	MutablePropertySources mutablePropertySources = env.getPropertySources();
+	
+	mutablePropertySources.addLast(New ResourcePropertySource("classpath:admin.properties"));
+	
+		
+		
+	}
+}

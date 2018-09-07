@@ -1,0 +1,16 @@
+package com.company.pencil;
+
+public class MainClass {
+	
+	public static void main(String[] args) {
+		
+		String res = "classpath:CTX.xml";
+		
+		
+		
+		
+	}
+	
+	
+}
+	
