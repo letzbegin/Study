@@ -5,8 +5,8 @@ import org.aspectj.lang.ProceedingJoinPoint;
 public class CommonAOP {
 
 	public Object loggerAOP(ProceedingJoinPoint joinPoint) throws Throwable{
-		String methodname = joinPoint.getSignature().toString();
-		System.out.println("system start");
+		String methodname = joinPoint.getSignature().toShortString();
+		System.out.println(methodname + ":system start");
 		
 		long st = System.currentTimeMillis();
 		
@@ -16,7 +16,8 @@ public class CommonAOP {
 			return obj;
 		} finally {
 			long et = System.currentTimeMillis();	
-			System.out.println("system end");
+			System.out.println(methodname + "system end");
+			System.out.println(methodname + "time "+(et-st));
 		}
 		
 		

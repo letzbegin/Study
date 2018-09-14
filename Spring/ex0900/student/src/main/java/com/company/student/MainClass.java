@@ -1,14 +1,17 @@
 package com.company.student;
 
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class MainClass {
 	public static void main(String[] args) {
 		
-		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
+//		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
+//		
+//		ctx.load("classpath:CTX.xml");
+//		ctx.refresh();
 		
-		ctx.load("classpath:CTX.xml");
-		ctx.refresh();
+		AbstractApplicationContext ctx = new GenericXmlApplicationContext("classpath:CTX.xml");
 		
 		Student student = ctx.getBean("student",Student.class);
 		student.info();

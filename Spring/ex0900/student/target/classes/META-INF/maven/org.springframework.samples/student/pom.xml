@@ -75,13 +75,14 @@
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
+
+		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjrt</artifactId>
+			<artifactId>aspectjweaver</artifactId>
 			<version>1.9.1</version>
 		</dependency>
+
 
 
 

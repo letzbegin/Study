@@ -1,0 +1,12 @@
+package com.company.ex10;
+
+import org.aspectj.lang.annotation.Pointcut;
+
+public class LogAOP {
+	
+	@Pointcut("within(com.company.ex10)")
+	public void ex10(){
+		
+	}
+	
+}

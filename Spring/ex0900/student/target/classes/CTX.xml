@@ -8,22 +8,25 @@
 	<bean id="common" class="com.company.student.CommonAOP"></bean>
 	
 	<aop:config>
-		<aop:aspect id="loger" ref="common">
-			<aop:pointcut expression="publicM" id="with(com.company.student.*)"/>
-			<aop:around method=""/>
+		<aop:aspect id="logger" ref="common">
+			<aop:pointcut id="publicM" expression="within(com.company.student.*)"/>
+			<aop:around pointcut-ref="publicM" method="loggerAOP" />
 		</aop:aspect>
-	
-	
 	</aop:config>
 	
 	
 	<bean id="student" class="com.company.student.Student">
-	
+		<property name="name" value="홍길동"/>
+		<property name="age" value="18"/>
+		<property name="gradeNum" value="1"/>
+		<property name="classNum" value="2"/>
 	</bean>
 	
 	
 	<bean id="worker" class="com.company.student.Worker">
-	
+		<property name="name" value="홍길순"/>
+		<property name="age" value="20"/>
+		<property name="job" value="개발자 "/>
 	</bean>
 
 </beans>
