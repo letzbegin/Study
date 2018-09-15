@@ -1,0 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<input type="button" id="noname" value="이름이 붙지 않은 새창">
+<input type="button" id="noname" value="자기 자신의 창 _self">
+<input type="button" id="noname" value="새로운 창  _black">
+<input type="button" id="noname" value="이름이 붙은 새창 ">
+
+
+
+</body>
+</html>
+
+<script type="text/javascript">
+<!--
+
+//-->
+
+ 
+</script>

@@ -1,2 +1,0 @@
-INDEX VERSION 1.130+D:\Study\web_javascript\00_ex\.metadata\.plugins\org.eclipse.jdt.core
-824051038.index

@@ -1,0 +1,13 @@
+
+public class test {
+	public static void main(String[] args) {
+		
+		String[] str = {"first","second","third"};
+		
+		
+		for (String string : str) {
+			System.out.println(string);
+		}
+		
+	}
+}

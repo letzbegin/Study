@@ -1,0 +1,14 @@
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
+
+public class test {
+	public static void main(String[] args) {
+		
+		String[] str = {"first","second","third"};
+		
+		
+		ForEach(String s : str){
+			System.out.println();
+		}
+		
+	}
+}

@@ -1,0 +1,53 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+</ul>
+<ol>
+    <li>HTML</li>
+    <li class="active">CSS</li>
+    <li>JavaScript</li>
+</ol>
+<input type="button" onclick="first()" value="selector 1">
+<input type="button" onclick="second()" value="selector 2">
+<input type="button" onclick="third()" value="selector 3">
+
+</body>
+</html>
+
+<script type="text/javascript">
+	//CSS의 선택자를 이용해서 태그를 선택
+	//최초의 li 태그를 가진 값만 선택
+	function first(){
+		var li = document.querySelector("li");
+		li.style.color="blue";
+	}
+// 	모든 li태그 선택
+	function second(){
+		//배열을 리턴 하기 때문에 foreach문으로 처리
+		var lis = document.querySelectorAll("li");
+		for(var name in lis){	
+			lis[name].style.color="orange";
+		}
+		
+// 	for (String string : args) {
+			
+// 		}
+		
+	}
+// 	class 선택자를 이용
+	function third(){
+		var li = document.querySelector(".active");
+		li.style.color="red";
+	}
+
+</script>
