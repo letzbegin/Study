@@ -6,7 +6,25 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script>"undefined"==typeof CODE_LIVE&&(!function(e){var t={nonSecure:"9734",secure:"9743"},c={nonSecure:"http://",secure:"https://"},r={nonSecure:"127.0.0.1",secure:"gapdebug.local.genuitec.com"},n="https:"===window.location.protocol?"secure":"nonSecure";script=e.createElement("script"),script.type="text/javascript",script.async=!0,script.src=c[n]+r[n]+":"+t[n]+"/codelive-assets/bundle.js",e.getElementsByTagName("head")[0].appendChild(script)}(document),CODE_LIVE=!0);</script></head>
-<body data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-13" data-genuitec-path="/Javascript/WebContent/DOM/Ex_06.jsp">
-
+<body data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-12" data-genuitec-path="/Javascript/WebContent/DOM/Ex_06.jsp">
+<ul data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-12" data-genuitec-path="/Javascript/WebContent/DOM/Ex_06.jsp">
+    <li>HTML</li>
+    <li>CSS</li>
+    <li id="active">JavaScript</li>
+</ul>
+<input type="button" value="element(Javascript)" onclick="element()">
+<input type="button" value="collection(li)" onclick="collection()">
 </body>
+<script type="text/javascript">
+// 	단수개의 객체라면 element 에 복수개의 객체라면 collection으로 관리 된다
+function element(){
+	var li = document.getElementById('active')
+	alert(li.constructor.name);	//HTMLElement(li의 element) = HTMLLIELEMENT
+}
+function collection(){
+	var lis = document.getElementsByTagName("li");
+	alert(lis.constructor.name);	//HTMLCollection 유사 배열
+}
+	
+</script>
 </html>

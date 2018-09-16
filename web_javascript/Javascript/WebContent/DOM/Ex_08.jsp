@@ -1,0 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<body>
+	<ul>
+		<li>HTML</li>
+		<li>CSS</li>
+		<li id="active">JavaScript</li>
+	</ul>
+	<script>
+		console.group('before');
+		var lis = document.getElementsByTagName('li');
+		for (var i = 0; i < lis.length; i++) {
+			console.log(lis[i]);
+		}
+		console.groupEnd();
+		console.group('after');
+		lis[1].parentNode.removeChild(lis[1]);
+		for (var i = 0; i < lis.length; i++) {
+			console.log(lis[i]);
+		}
+		console.groupEnd();
+	</script>
+</body>
+</html>

@@ -45,7 +45,7 @@ chgulli.addEventListener('click', function(){
 		//li 객체(배열)을 찾은 후
 	var lis =ul.getElementsByTagName("li");
 	//for으로 각 객체(배열)에 속성을 부여한다
-	for(var i = 0 ; lis.length ; i++){
+	for(var i = 0 ; i<lis.length ; i++){
 		lis[i].style.color='blue';
 	}
 });

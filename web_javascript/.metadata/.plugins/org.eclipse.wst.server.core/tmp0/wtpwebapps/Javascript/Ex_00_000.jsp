@@ -6,13 +6,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script>"undefined"==typeof CODE_LIVE&&(!function(e){var t={nonSecure:"9734",secure:"9743"},c={nonSecure:"http://",secure:"https://"},r={nonSecure:"127.0.0.1",secure:"gapdebug.local.genuitec.com"},n="https:"===window.location.protocol?"secure":"nonSecure";script=e.createElement("script"),script.type="text/javascript",script.async=!0,script.src=c[n]+r[n]+":"+t[n]+"/codelive-assets/bundle.js",e.getElementsByTagName("head")[0].appendChild(script)}(document),CODE_LIVE=!0);</script></head>
-<body data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-7" data-genuitec-path="/Javascript/WebContent/Ex_00_000.jsp">
+<body data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-13" data-genuitec-path="/Javascript/WebContent/Ex_00_000.jsp">
 
 <!-- Html 코드를 내부에 스크립트 코드를 삽입하는 처리방식 
 	
 	inline 방식이라고 한다
 -->
-<input type="button" onclick="alert('Hello World')" value="인라인 방식" data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-7" data-genuitec-path="/Javascript/WebContent/Ex_00_000.jsp">
+<input type="button" onclick="alert('Hello World')" value="인라인 방식" data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-13" data-genuitec-path="/Javascript/WebContent/Ex_00_000.jsp">
 
 <!-- 스크립트 태그 안에 코드를 넣어 ID값을 준 태그에서 일어난 이벤트를 처리하는 방식
 

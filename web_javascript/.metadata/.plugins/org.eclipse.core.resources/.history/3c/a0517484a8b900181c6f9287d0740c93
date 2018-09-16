@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery Object</title>
+</head>
+<body>
+<ul>
+    <li>html</li>
+    <li>css</li>
+    <li>JavaScript</li>
+</ul>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+</body>
+<script>
+    console.log($('li').length);
+    console.log($('li')[0]);
+    var li = $('li');
+    for(var i=0; i<li.length; i++){
+        console.log(li[i]);	//리턴하는 객체는 jQuery 객체가 아닌 DOM 객체이다. 때문에 JQuery 문법 사용 불가
+    }
+//     사용하고자 한다면 아래의 방식으로 사용 해야한다
+    for(var i=0; i<li.length; i++){
+        $(li[i]).css('color', 'red');
+    }
+</script>
+</html>

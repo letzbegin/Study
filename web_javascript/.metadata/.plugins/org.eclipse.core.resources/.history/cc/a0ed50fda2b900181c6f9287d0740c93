@@ -1,0 +1,38 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>HTMLelement</title>
+</head>
+<body>
+<a id="anchor" href="http://opentutorials.org">opentutorials</a>
+<ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li id="list">JavaScript</li>
+</ul>
+<input type="button" id="button" value="button" />
+<br>
+<br>
+<br>
+<input type="button" value="list" onclick="list()">
+<input type="button" value="anchor" onclick="anchor()">
+<input type="button" value="button" onclick="button()">
+</body>
+<script>
+function list(){
+    var target = document.getElementById('list');
+    alert(target.constructor.name);
+}
+fucntion anchor(){
+    var target = document.getElementById('anchor');
+	alert(targer.constructor.name);	
+} 
+function button(){
+    var target = document.getElementById('button');
+	alert(targer.constructor.name);	
+} 
+</script>
+</html>

@@ -7,6 +7,24 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li id="active">JavaScript</li>
+</ul>
+<input type="button" value="element(Javascript)" onclick="element()">
+<input type="button" value="collection(li)" onclick="collection()">
 </body>
+<script type="text/javascript">
+// 	단수개의 객체라면 element 에 복수개의 객체라면 collection으로 관리 된다
+function element(){
+	var li = document.getElementById('active')
+	alert(li.constructor.name);	//HTMLElement(li의 element) = HTMLLIELEMENT
+}
+function collection(){
+	var lis = document.getElementsByTagName("li");
+	alert(lis.constructor.name);	//HTMLCollection 유사 배열
+}
+	
+</script>
 </html>
