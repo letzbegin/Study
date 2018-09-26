@@ -1,0 +1,18 @@
+[genuitec-file-id="wc1-68"],[genuitec-lp-path="/ex01/src/main/webapp/resources/plugins/datatables/extensions/ColReorder/css/dataTables.colReorder.css"],[genuitec-lp-enabled=false]{
+  /* for codelive */
+}
+
+/*
+ * Namespace DTCR - "DataTables ColReorder" plug-in
+ */
+
+table.DTCR_clonedTable {
+	background-color: rgba(255, 255, 255, 0.7);
+	z-index: 202;
+}
+
+div.DTCR_pointer {
+	width: 1px;
+	background-color: #0259C4;
+	z-index: 201;
+}

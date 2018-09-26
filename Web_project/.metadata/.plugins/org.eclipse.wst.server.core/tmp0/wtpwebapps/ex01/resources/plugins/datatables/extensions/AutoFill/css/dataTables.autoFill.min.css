@@ -1,0 +1,5 @@
+[genuitec-file-id="wc1-59"],[genuitec-lp-path="/ex01/src/main/webapp/resources/plugins/datatables/extensions/AutoFill/css/dataTables.autoFill.min.css"],[genuitec-lp-enabled=false]{
+  /* for codelive */
+}
+
+div.AutoFill_filler{display:none;position:absolute;height:14px;width:14px;background:url(../images/filler.png) no-repeat center center;z-index:1002}div.AutoFill_border{display:none;position:absolute;background-color:#0063dc;z-index:1001;box-shadow:0px 0px 5px #76b4ff;-moz-box-shadow:0px 0px 5px #76b4ff;-webkit-box-shadow:0px 0px 5px #76b4ff}

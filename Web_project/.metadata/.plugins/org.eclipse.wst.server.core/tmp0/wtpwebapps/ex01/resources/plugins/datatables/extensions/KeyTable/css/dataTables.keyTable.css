@@ -1,0 +1,11 @@
+[genuitec-file-id="wc1-125"],[genuitec-lp-path="/ex01/src/main/webapp/resources/plugins/datatables/extensions/KeyTable/css/dataTables.keyTable.css"],[genuitec-lp-enabled=false]{
+  /* for codelive */
+}
+
+
+
+table.KeyTable th.focus,
+table.KeyTable td.focus {
+	outline: 3px solid #3366FF;
+	outline-offset: -3px;
+}

@@ -1,0 +1,8 @@
+package com.spring.vo;
+
+public enum ProductVo {
+
+	private String name;
+	
+	
+}

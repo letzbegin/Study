@@ -1,0 +1,8 @@
+package com.spring.vo;
+
+public class ProductVo {
+
+	private String name;
+	
+	
+}

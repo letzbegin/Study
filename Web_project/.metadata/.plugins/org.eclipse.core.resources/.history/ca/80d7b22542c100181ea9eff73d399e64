@@ -1,0 +1,30 @@
+package com.spring.dao;
+
+import javax.inject.Inject;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
+
+import com.spring.vo.MemberVO;
+
+@Repository
+public class MemberDAOImpl implements MemberDAO{
+
+	@Inject
+	private SqlSession SqlSession;
+	
+	private static final String namespace = "org.spring.mapper.MemberMapper"; 
+	
+	@Override
+	public String getTime() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void insertMember(MemberVO vo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

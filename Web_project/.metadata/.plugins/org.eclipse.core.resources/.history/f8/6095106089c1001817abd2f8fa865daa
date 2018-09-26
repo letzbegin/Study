@@ -1,0 +1,50 @@
+package com.board.controller;
+
+import javax.inject.Inject;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.board.service.BoardService;
+import com.board.vo.BoardVO;
+
+@Controller
+@RequestMapping("/board")
+public class BoardController {
+
+	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
+	
+	@Inject
+	private BoardService service;
+	
+	
+	@RequestMapping(value="/register", method=RequestMethod.GET)
+	public void registerGet(BoardVO vo, Model model) throws Exception{
+		
+		logger.info("register get .......");
+	}
+	
+	@RequestMapping(value="/register", method=RequestMethod.POST)
+	public String registerPost(BoardVO vo , Model model) throws Exception{
+		
+		logger.info("register post ......");
+		logger.info("board.toString()");
+		
+		service.create(vo);
+		
+		model.addAttribute("result","success");
+		return "redirect:/board/listAll";
+	}
+	
+//	redirect로 보내고 listALL에서 get방식으로 받기 때문에 URL에 listAll?result=success로 표기 됨
+	@RequestMapping(value="/listAll", method=RequestMethod.GET)
+	public void listAll(Model model){
+		
+		logger.info("show all list..................");
+	}
+	
+}
