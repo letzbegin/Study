@@ -9,3 +9,5 @@
 2018-09-16 00:28:42,117 [Worker-25] INFO  j.exodus.env.EnvironmentImpl - Exodus environment created: D:\Study\web_javascript\.metadata\com.genuitec.eclipse.webclipse.livepreview\1\store
 2018-09-16 19:55:14,465 [Worker-0] INFO  j.exodus.env.EnvironmentImpl - Exodus environment created: D:\Study\web_javascript\.metadata\com.genuitec.eclipse.webclipse.livepreview\0\store
 2018-09-16 19:55:14,574 [Worker-0] INFO  j.exodus.env.EnvironmentImpl - Exodus environment created: D:\Study\web_javascript\.metadata\com.genuitec.eclipse.webclipse.livepreview\1\store
+2018-09-17 19:59:48,024 [Worker-14] INFO  j.exodus.env.EnvironmentImpl - Exodus environment created: D:\Study\web_javascript\.metadata\com.genuitec.eclipse.webclipse.livepreview\0\store
+2018-09-17 19:59:48,116 [Worker-14] INFO  j.exodus.env.EnvironmentImpl - Exodus environment created: D:\Study\web_javascript\.metadata\com.genuitec.eclipse.webclipse.livepreview\1\store

@@ -1,0 +1,37 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Attribute</title>
+</head>
+<body>
+<a id="target" href="http://opentutorials.org">opentutorials</a>
+<input type="button" value="attribute getUrl" onclick="geturl()">
+<input type="button" value="attribute check" onclick="check()">
+<input type="button" value="attribute change" onclick="change()">
+<input type="button" value="attribute remove" onclick="remove()">
+</body>
+<script type="text/javascript">
+var t = document.getElementById("target");
+function geturl(){
+	t.getAttribute("href");
+}
+
+
+function check(){
+	alert(t.hasAttribute("href"));
+}
+function change(){
+	t.setAttribute("href", "http://www.naver.com");
+	alert("네이버로 변경됩니다");
+	t.textContent="naver";
+	
+}
+function remove(){
+	alert("속성을 삭제합니다");
+	t.remove("href");
+}
+</script>
+</html>

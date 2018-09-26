@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<body data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-15" data-genuitec-path="/Javascript/WebContent/DOM/Ex_08.jsp">
-	<ul data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-15" data-genuitec-path="/Javascript/WebContent/DOM/Ex_08.jsp">
+<body data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-19" data-genuitec-path="/Javascript/WebContent/DOM/Ex_08.jsp">
+	<ul data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-19" data-genuitec-path="/Javascript/WebContent/DOM/Ex_08.jsp">
 		<li>HTML</li>
 		<li>CSS</li>
 		<li id="active">JavaScript</li>
