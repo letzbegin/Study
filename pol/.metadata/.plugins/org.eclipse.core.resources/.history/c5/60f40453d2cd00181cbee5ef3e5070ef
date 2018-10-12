@@ -1,0 +1,9 @@
+package com.red.pol;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+
+public class HeaderController {
+
+}

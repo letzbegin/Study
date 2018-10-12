@@ -1,0 +1,43 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page session="false" %>
+<html>
+<head>
+	<title>Home</title>
+</head>
+
+<link href="css/bootstrap.css" rel="stylesheet" >
+<body>
+<h1>
+	Hello world!  
+</h1>
+
+<P>  The time on the server is ${serverTime}. </P>
+<table class="table">
+
+<tr>
+<th>안녕</th>
+
+</tr>
+<tr>
+<th>안녕</th>
+
+</tr>
+<tr>
+<th>안녕</th>
+
+</tr>
+<tr>
+<th>안녕</th>
+
+</tr>
+<tr>
+<th>안녕</th>
+
+</tr>
+</table>
+
+
+
+</body>
+
+</html>

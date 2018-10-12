@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="form" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="form"/>
+			<item value="primary"/>
+			<item value="fff"/>
+			<item value="tiles"/>
+			<item value="mysql-connecter"/>
+		</list>
+		<list key="replacehistory">
+			<item value="success"/>
+		</list>
+	</section>
+</section>

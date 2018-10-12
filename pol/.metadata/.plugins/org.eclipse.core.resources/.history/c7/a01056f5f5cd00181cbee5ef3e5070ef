@@ -1,0 +1,18 @@
+package com.red.pol;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class LoginContollor {
+
+	@RequestMapping("login")
+	public void login(HttpServletRequest request){
+		request.getAttribute("userid");
+		request.getAttribute("userpwd");
+		
+	}
+	
+}
