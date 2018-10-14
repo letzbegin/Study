@@ -8,5 +8,12 @@
 </head>
 <body>
 <p> 검색화면</p>
+<div id="korea" style="width: 600; height: 800;">
+</div>
+
+<h2 id="region-name"></h2>
+
+<script type="text/javascript" src="js/raphael-min.js"></script>
+<script type="text/javascript" src="js/korea.js"></script>
 </body>
 </html>

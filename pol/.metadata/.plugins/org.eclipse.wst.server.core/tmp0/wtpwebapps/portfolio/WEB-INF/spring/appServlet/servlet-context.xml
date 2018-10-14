@@ -15,6 +15,7 @@
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="**" location="/resources/" />
 	<resources location="/resources/img/" mapping="/img/**"/>
+	<resources location="/resources/js/" mapping="/js/**"/>
 
 	<beans:bean class="org.springframework.web.servlet.view.tiles3.TilesViewResolver" id="tilesViewResolver">
 		<beans:property name="order" value="0"/>

@@ -5,9 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script>"undefined"==typeof CODE_LIVE&&(!function(e){var t={nonSecure:"49376",secure:"49381"},c={nonSecure:"http://",secure:"https://"},r={nonSecure:"127.0.0.1",secure:"gapdebug.local.genuitec.com"},n="https:"===window.location.protocol?"secure":"nonSecure";script=e.createElement("script"),script.type="text/javascript",script.async=!0,script.src=c[n]+r[n]+":"+t[n]+"/codelive-assets/bundle.js",e.getElementsByTagName("head")[0].appendChild(script)}(document),CODE_LIVE=!0);</script></head>
-<body data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-1" data-genuitec-path="/portfolio/src/main/webapp/WEB-INF/views/include/body.jsp">
-<div class="container" style="margin-top:30px" data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-1" data-genuitec-path="/portfolio/src/main/webapp/WEB-INF/views/include/body.jsp">
+</head>
+<body>
+<div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-4">
       <h2>About Me</h2>

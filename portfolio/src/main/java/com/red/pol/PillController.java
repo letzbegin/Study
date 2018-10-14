@@ -1,0 +1,23 @@
+package com.red.pol;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class PillController {
+
+	
+	@RequestMapping("pillusage")
+ 	public String pill_usage(){
+		
+		
+		return "pillinfo/pill_useage";
+	}
+	
+	
+	@RequestMapping("pillnon")
+	public String pill_non(){
+		
+		return "pillinfo/pill_nonprescription";
+	}
+}
