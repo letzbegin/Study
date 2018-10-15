@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board.comment.mapper">
+
+<delete id="delete">
+delete from board_comment where id =#{id}
+</delete>
+
+<update id="update">
+update board_comment set content=#{content} where id=#{id}
+</update>
+
+<select id="list" resultType="board.vo.BoardCommentVO">
+select b.*, (select name from member where userid=b.userid) name 
+from board_comment b where pid=#{pid} 
+order by id desc
+</select>
+
+<insert id="insert">
+insert into board_comment(pid, userid, content)
+values (#{pid}, #{userid}, #{content})
+</insert>
+
+</mapper>

@@ -32,7 +32,6 @@
 </style>
 
 <body>
-
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
@@ -41,19 +40,19 @@
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="home">어서오세약</a>
+				<a class="navbar-brand" href="home">${login_info.name }</a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="search">검색</a></li>
 					<li><a href="pillnon">의약품정보</a></li>
-					<li><a href="board">게시판</a></li>
+					<li><a href="list.bo">게시판</a></li>
 					<li><a href="guide">사용가이드</a></li>
 					<li>	
-						<c:if test="${!empty user_info }">
-						<a id="login_tl" href="" onclick="go_logout()">${user_info }</a>
+						<c:if test="${!empty login_info }">
+						<a id="login_tl" href="" onclick="go_logout()">${login_info.name }</a>
 						</c:if>
-						<c:if test="${empty user_info }">
+						<c:if test="${empty login_info }">
 							<a id="login_tl" data-toggle="modal" href=""
 								data-target="#myModal">로그인</a>
 							<!-- Modal -->
@@ -70,20 +69,22 @@
 												<span class="input-group-addon"><i
 													class="glyphicon glyphicon-user"></i></span> <input id="userid"
 													type="text" class="form-control" name="userid"
-													placeholder="id">
+													placeholder="아이디">
 											</div>
 											<div class="input-group">
 												<span class="input-group-addon"><i
 													class="glyphicon glyphicon-lock"></i></span> <input id="userpwd"
 													type="password" class="form-control" name="userpwd"
-													placeholder="Password">
+													placeholder="비밀번호">
 											</div>
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-default"
-												data-dismiss="modal" onclick="go_Login()">login</button>
+												data-dismiss="modal" onclick="location='member'">가입하기</button>
 											<button type="button" class="btn btn-default"
-												data-dismiss="modal">Close</button>
+												data-dismiss="modal" onclick="go_Login()">로그인</button>
+											<button type="button" class="btn btn-default"
+												data-dismiss="modal">취소</button>
 										</div>
 									</div>
 								</div>
@@ -215,10 +216,10 @@
 					alert("아이디 또는 비밀번호가 다릅니다!");
 					$('#userid').val('');
 					$('#userpwd').val('');
-				} else
-					console.log(data);
-					$('#login_tl').text(data);
-// 					location.reload();
+				} else {
+					alert("로그인에 성공하셨습니다");
+					location.reload();
+				}
 			},
 			error : function(req, textStatus, err) {
 				alert(textStatus + "(" + req.status + ") : " + err);
@@ -230,10 +231,6 @@
 		$.ajax({
 			url : 'logout',
 			type : 'post',
-			data : {
-				userid : $('#userid').val(),
-				userpwd : $('#userpwd').val()
-			},
 			success : function() {
 				location.reload();
 			},

@@ -16,8 +16,8 @@
 	<bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<property name="url" value="jdbc:oracle:thin:@221.144.97.134:1521/xe" />
-		<property name="username" value="team2" />
-		<property name="password" value="0000" />
+		<property name="username" value="iot" />
+		<property name="password" value="iot" />
 	</bean>
 
 	<!-- Mybatis설정 -->
@@ -32,5 +32,14 @@
 		<constructor-arg name="sqlSessionFactory" 
 						ref="sqlFactory"/>
 	</bean>
-
+	
+	<!-- 파일업로드처리객체	 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="utf-8"/>
+	</bean>
+	
+	
+	<context:component-scan base-package="board, member, common"/>
+	
 </beans>
+

@@ -7,18 +7,20 @@
 <title>Insert title here</title>
 <script>"undefined"==typeof CODE_LIVE&&(!function(e){var t={nonSecure:"57820",secure:"57825"},c={nonSecure:"http://",secure:"https://"},r={nonSecure:"127.0.0.1",secure:"gapdebug.local.genuitec.com"},n="https:"===window.location.protocol?"secure":"nonSecure";script=e.createElement("script"),script.type="text/javascript",script.async=!0,script.src=c[n]+r[n]+":"+t[n]+"/codelive-assets/bundle.js",e.getElementsByTagName("head")[0].appendChild(script)}(document),CODE_LIVE=!0);</script></head>
 <body data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-9" data-genuitec-path="/portfolio/src/main/webapp/WEB-INF/views/pillinfo/pill_useage.jsp">
-	
+
 	<div class="container-fluid text-center" data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-9" data-genuitec-path="/portfolio/src/main/webapp/WEB-INF/views/pillinfo/pill_useage.jsp">
 		<div class="row content">
-			<div class="col-sm-3 sidenav">
-				<p>
-					<a href="pillnon">처방전 없이 살수 있는 의약품</a>
-				</p>
-				<p>
-					<a href="pillusage" style="background: aqua;">복용법</a>
-				</p>
+			<div class="col-sm-2 sidenav">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<a href="pillnon">처방전 없이 살수 있는 의약품</a>
+					</div>
+					<div class="panel-heading">
+						<a href="pillusage">복용법</a>
+					</div>
+				</div>
 			</div>
-			<div class="col-sm-6 text-left">
+			<div class="col-sm-8 text-left">
 				<table class="table ">
 					<tr>
 						<th><h2>의약품 복용법</h2>
@@ -63,12 +65,10 @@
 					</tr>
 					<tr>
 						<td><a href="#" style="align: right;">위로가기</a></td>
-
 					</tr>
-
 				</table>
 			</div>
-			<div class="col-sm-3 sidenav">
+			<div class="col-sm-2 sidenav">
 				<div class="well">
 					<p>ADS</p>
 				</div>

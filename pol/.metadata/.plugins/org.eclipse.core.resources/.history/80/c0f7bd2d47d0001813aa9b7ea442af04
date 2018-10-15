@@ -1,0 +1,113 @@
+package com.red.pol;
+
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.google.common.net.InetAddresses;
+
+/**
+ * Handles requests for the application home page.
+ */
+@Controller
+public class HomeController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	//IP로 위치를 가져오는 api return json
+		private String mappingUrl_ ="http://api.ipstack.com/";
+		private String access_key_ ="?access_key=ee75adf85da2c5d7a69086cc92523acf";
+		
+	
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	@RequestMapping(value = {"/","home"}, method = RequestMethod.GET)
+	public String home(Locale locale, Model model, HttpServletRequest request) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		
+		//시간 확인
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		
+		String formattedDate = dateFormat.format(date);
+		
+		model.addAttribute("serverTime", formattedDate );
+		
+		//지역 확인
+		
+		String ip = request.getHeader("X-FORWARDED-FOR");
+
+		logger.info("TEST : X-FORWARDED-FOR : "+ip);
+
+		if (ip == null) {
+
+		ip = request.getHeader("Proxy-Client-IP");
+
+		logger.info("TEST : Proxy-Client-IP : "+ip);
+
+		}
+
+		if (ip == null) {
+
+		ip = request.getHeader("WL-Proxy-Client-IP");
+
+		logger.info("TEST : WL-Proxy-Client-IP : "+ip);
+
+		}
+
+		if (ip == null) {
+
+		ip = request.getHeader("HTTP_CLIENT_IP");
+
+		logger.info("TEST : HTTP_CLIENT_IP : "+ip);
+
+		}
+
+		if (ip == null) {
+
+		ip = request.getHeader("HTTP_X_FORWARDED_FOR");
+
+		logger.info("TEST : HTTP_X_FORWARDED_FOR : "+ip);
+
+		}
+
+		if (ip == null) {
+
+		ip = request.getRemoteAddr();
+
+		}
+
+		return ip;
+
+		//ip확인
+		String ip = request.getHeader("X-Forwarded-For");
+		if(ip == null){
+			ip = request.getRemoteAddr();
+		}
+		logger.info("==========================================");
+		logger.info("유저의 IP :"+ip);
+		logger.info("==========================================");
+		
+		//ip를 이용하여 위도 경도 불러오기
+		
+		ip = "221.144.97.134";
+		String fullurl =mappingUrl_+ip+access_key_; 
+		logger.info("==========================================");
+		logger.info("Fullurl :"+fullurl);
+		logger.info("==========================================");
+		
+		model.addAttribute("fullurl", fullurl );
+		
+		return "index";
+	}
+	
+}

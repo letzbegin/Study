@@ -62,6 +62,10 @@ margin: 0 auto;
       <span class="sr-only">Next</span>
     </a>
   </div>
+  
+  <div id="googleMap" style="height:400px;width:100%;"></div>
+  
+  
 
 </body>
 </html>

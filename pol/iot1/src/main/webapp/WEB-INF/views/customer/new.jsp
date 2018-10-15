@@ -32,8 +32,6 @@
 <input type="submit" value="고객등록" />
 <a class="btn-fill" onclick="location='list.cs'">고객목록</a>
 </form>
-
-
 </body>
 </html>
 

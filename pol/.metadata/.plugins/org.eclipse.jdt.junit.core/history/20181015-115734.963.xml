@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="TestDataSource" project="portfolio" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="com.red.pol.TestDataSource" time="0.52">
-    <testcase name="testConnectionDataSource" classname="com.red.pol.TestDataSource" time="0.52"/>
-  </testsuite>
-</testrun>
