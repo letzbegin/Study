@@ -5,9 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-</head>
-<body>
-	<div class="container-fluid text-center">
+<script>"undefined"==typeof CODE_LIVE&&(!function(e){var t={nonSecure:"57820",secure:"57825"},c={nonSecure:"http://",secure:"https://"},r={nonSecure:"127.0.0.1",secure:"gapdebug.local.genuitec.com"},n="https:"===window.location.protocol?"secure":"nonSecure";script=e.createElement("script"),script.type="text/javascript",script.async=!0,script.src=c[n]+r[n]+":"+t[n]+"/codelive-assets/bundle.js",e.getElementsByTagName("head")[0].appendChild(script)}(document),CODE_LIVE=!0);</script></head>
+<body data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-0" data-genuitec-path="/portfolio/src/main/webapp/WEB-INF/views/board/board.jsp">
+	<div class="container-fluid text-center" data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-0" data-genuitec-path="/portfolio/src/main/webapp/WEB-INF/views/board/board.jsp">
 		<div class="row content">
 			<div class="col-sm-3 sidenav">
 				<div class="panel panel-default" style="width: 200px;">

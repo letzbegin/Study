@@ -1,0 +1,332 @@
+DB에 비번은 iot로 인증받도록 iot 유저를 생성한다. 
+create user iot identified by iot;
+iot 유저에 권한을 부여한다.
+grant dba to iot;
+
+
+고객정보관리
+create table customer(
+id     number(8) constraint customer_id_pk primary key,
+name   varchar2(30) not null, /*성명*/
+gender varchar2(3) default '남' not null,  /*성별 */
+email  varchar2(50), /*이메일 */
+phone  varchar2(13)  /*연락처*/
+);
+
+
+고객정보관리 테이블의 id컬럼에 적용할 시퀀스
+create sequence seq_customer 
+start with 1 increment by 1;
+
+시퀀스 seq_customer 의 값이 고객정보관리 테이블의 id컬럼에 자동적용되게 할 트리거
+create or replace trigger trg_customer
+	before insert on customer
+	for each row
+begin
+	select seq_customer.nextval into :new.id from dual;
+end;
+/
+
+
+필요한 라이브러리 등록: pom.xml - mvnrepository.com 에서 찾는다.
+스프링에서 JDBC를 사용하기 위해 라이브러리 등록
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-jdbc</artifactId>
+    <version>4.3.14.RELEASE</version>
+</dependency>
+
+DBCP(DataBaseConnectionPool)
+스프링에서 DBCP를 사용하기 위해 라이브러리 등록
+<!-- https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp -->
+<dependency>
+    <groupId>commons-dbcp</groupId>
+    <artifactId>commons-dbcp</artifactId>
+    <version>1.4</version>
+</dependency>
+
+Oracle은 공공저장소에서 제공하지 않으므로 제공하고 있는 저장소를 등록해야 한다.
+: maven.jahia.org/maven2
+	<repositories>
+		<repository>
+			<id>maven2_repo</id>
+			<url>http://maven.jahia.org/maven2</url>
+		</repository>
+	</repositories>
+
+Oracle 을 사용하기 위해 라이브러리 등록: 
+<dependency>
+	<groupId>com.oracle</groupId>
+	<artifactId>ojdbc6</artifactId>
+	<version>12.1.0.2</version>
+</dependency>		    
+		     
+Mybatis 를 사용해서 쿼리문을 실행한다.
+Mybatis 사용하기 위해 라이브러리 등록
+<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+<dependency>
+    <groupId>org.mybatis</groupId>
+    <artifactId>mybatis</artifactId>
+    <version>3.4.1</version>
+</dependency>
+
+1. 
+Controller 에서는 Service의 해당 메소드를 호출한다.
+따라서 Controller에는 Service 객체의 주소를 알아야하므로
+Service 타입의 필드를 선언하고 
+@Autowired/@Inject 로 주소를 주입한다.
+
+2. 
+Service 에서는 DAO 의 해당 메소드를 호출한다.
+따라서 Service에서는 DAO 객체의 주소를 알아야하므로
+DAO 타입의 필드를 선언하고 
+@Autowired/@Inject 로 주소를 주입한다.
+
+3. 
+DAO 에서는 mybatis의 매퍼파일의 태그를 호출한다.
+따라서 DAO 에서는 SqlSession 객체의 주소를 알아야하므로
+SqlSession 타입의 필드를 선언하고 
+@Autowired/@Inject 로 주소를 주입한다.
+
+
+annotation을 지정해 각 객체를 메모리에 올릴 수 있다.
+Service 클래스는 @Service
+DAO 클래스는 @Repository
+데이터객체로 사용하는 클래스 @Component 
+
+화면의 layout 지정하기 위한 라이브러리: tiles
+<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-jsp -->
+<dependency>
+    <groupId>org.apache.tiles</groupId>
+    <artifactId>tiles-jsp</artifactId>
+    <version>3.0.7</version>
+</dependency>
+
+
+공지사항
+공지글관리
+create table notice(
+id			number constraint notice_id_pk primary key,
+writer		varchar2(50) not null,
+title		varchar2(300) not null,
+content		varchar2(4000) not null,
+writedate	date default sysdate,
+readcnt		number default 0,
+filepath	varchar2(300),
+filename	varchar2(300),
+root		number  /*답글작성시 원본글의 id*/,
+step		number default 0 /*답글작성시 답글 순서*/,
+indent		number default 0 /*답글작성시 들여쓰기*/
+);
+
+공지글관리 테이블의 pk 인 id에 적용할 시퀀스
+create sequence seq_notice
+start with 1 increment by 1;
+
+공지글 id에 시퀀스값 자동적용할 트리거
+create or replace trigger trg_notice
+	before insert on notice
+	for each row
+begin
+	select seq_notice.nextval into :new.id from dual;
+end;
+/
+
+
+alter table notice
+add( root number, step number default 0, indent number default 0);
+
+사용중인 트리거를 비활성화한다 enable/disable
+: alter trigger trg_notice disable;
+
+root 컬럼에 데이터가 없는 데이터행은 id데이터값으로 변경시키는 처리를 한다.
+update notice set root=id where root is null;
+commit;
+
+페이징처리를 위해 데이터행을 저장하자
+insert into notice(id, root, title, content, writer)
+select seq_notice.nextval, seq_notice.currval, title, content, writer
+from notice;
+
+파일첨부시 필요한 라이브러리
+<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+<dependency>
+    <groupId>commons-fileupload</groupId>
+    <artifactId>commons-fileupload</artifactId>
+    <version>1.3.1</version>
+</dependency>
+
+
+
+
+
+
+
+
+회원가입, 로그인
+회원정보관리
+create table member(
+name		varchar2(50) not null,
+userid		varchar2(50) constraint member_userid_pk primary key,
+userpwd		raw(100) not null,
+gender		varchar2(3) default '남' not null,
+email		varchar2(50) not null,
+birth		date not null,
+phone		varchar2(13),
+post		varchar2(7),
+address     varchar2(300),
+admin		varchar2(1) default 'N' /*관리자여부: 관리자(Y), 일반회원(N)*/
+);
+
+관리자회원저장
+insert into member(name, userid, userpwd, email, birth, admin)
+values ('관리자', 'admin', fn_encrypt('manager'), 'ojink2@naver.com',
+		'2000-01-01', 'Y' );
+
+암호화함수
+create or replace function 
+	fn_encrypt(input varchar2, key_data varchar2:='iot20180409')
+	return raw is
+	 
+input_raw raw(100);
+key_raw raw(100);
+encryption_suit pls_integer;
+begin
+	input_raw := utl_i18n.string_to_raw(input, 'AL32UTF8');
+	key_raw := utl_i18n.string_to_raw(key_data, 'AL32UTF8');
+	encryption_suit := dbms_crypto.des_cbc_pkcs5;
+	return dbms_crypto.encrypt( src=> input_raw, key=> key_raw,
+						 typ=> encryption_suit );	
+end;
+/
+
+create or replace function 
+	fn_decrypt(input_raw varchar2, key_data varchar2:='iot20180409')
+	return varchar2 is
+key_raw raw(100);
+encryption_suit pls_integer;
+decrypted_data raw(100);	
+begin
+	key_raw := utl_i18n.string_to_raw(key_data, 'AL32UTF8');
+	encryption_suit := dbms_crypto.des_cbc_pkcs5;
+	decrypted_data := dbms_crypto.decrypt(src=> input_raw, 
+						key=>key_raw, typ=> encryption_suit);
+	return utl_i18n.raw_to_char(decrypted_data, 'AL32UTF8');                    
+end;
+/	 
+
+select fn_decrypt(fn_encrypt('ab')) from dual;
+
+
+
+
+select fn_encrypt('abc') from dual;
+
+dbms_crypto 사용권한 부여
+sqlplus system/0000 as sysdba;
+
+@D:\oraclexe\app\oracle\product\11.2.0\server\rdbms\admin\dbmsobtk.sql
+grant execute on dbms_crypto to public;
+
+
+
+
+
+게시글정보관리
+create table board(
+id			number constraint board_id_pk primary key,
+userid		varchar2(50) not null, /*로그인한 게시글작성자 아이디*/
+title		varchar2(300) not null,
+content		varchar2(4000) not null,
+writedate  	date default sysdate,
+filename 	varchar2(100),
+filepath	varchar2(100), 
+readcnt		number default 0 
+);
+
+create sequence seq_board
+start with 1 increment by 1;
+
+create or replace trigger trg_board
+	before insert on board
+	for each row
+begin
+	select seq_board.nextval into  :new.id from dual;
+end;
+/
+
+
+댓글정보를 관리할 테이블
+create table board_comment(
+	id			number constraint board_comment_id_pk primary key,
+	pid			number not null, /*댓글다는 원글의 pk인 아이디*/
+	userid		varchar2(50) not null, /*댓글작성하는 로그인한 회원의 아이디*/
+	content		varchar2(1000) not null, /*작성하는 댓글내용*/
+	writedate 	date default sysdate,
+	constraint board_comment_pid_fk foreign key(pid) 
+						references board(id) on delete cascade,
+	constraint board_comment_userid_fk foreign key(userid)
+						references member(userid) on delete cascade
+);
+
+부모테이블의 데이터행 삭제시 자식테이블의 데이터행도 함께 삭제되도록 처리하려면
+constraint 에 on delete cascade 를 지정한다.
+
+create sequence seq_board_comment
+start with 1 increment by 1;
+
+create or replace trigger trg_board_comment
+	before insert on board_comment
+	for each row
+begin
+	select seq_board_comment.nextval into :new.id from dual;
+end;
+/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
