@@ -43,7 +43,7 @@
 					</c:forEach>
 				</table>
 				
-				<span style="float: left; margin-left: 30%">
+				<div class="form-group">
 						 <select name="search">
 								<option ${page.search eq 'all' ? 'selected' : '' } value="all">전체</option>
 								<option ${page.search eq 'title' ? 'selected' : '' }
@@ -52,14 +52,14 @@
 									value="content">내용</option>
 								<option ${page.search eq 'writer' ? 'selected' : '' }
 									value="writer">작성자</option>
-						</select> <input type="text" name="keyword" value="${page.keyword }"
-							style="width: 350px; vertical-align: top;" /> <a
+						</select> <input type="text" class="form-control" name="keyword" value="${page.keyword }"
+							 /> <a
 							class="btn btn-success btn-sm" onclick="$('form').submit()">검색</a>
 							<c:if test="${!empty login_info }">
 							<a class="btn btn-success btn-sm" style="float: right;"
 								onclick="location='new.bo'">글쓰기</a>
 						</c:if>
-						</span>
+						</div>
 						<form method="post" action="list.bo" id="list">
 					<p id="list-top">
 						

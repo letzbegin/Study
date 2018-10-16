@@ -13,9 +13,9 @@
 	padding-bottom: 20px;
 }
 </style>
-<script>"undefined"==typeof CODE_LIVE&&(!function(e){var t={nonSecure:"57820",secure:"57825"},c={nonSecure:"http://",secure:"https://"},r={nonSecure:"127.0.0.1",secure:"gapdebug.local.genuitec.com"},n="https:"===window.location.protocol?"secure":"nonSecure";script=e.createElement("script"),script.type="text/javascript",script.async=!0,script.src=c[n]+r[n]+":"+t[n]+"/codelive-assets/bundle.js",e.getElementsByTagName("head")[0].appendChild(script)}(document),CODE_LIVE=!0);</script></head>
-<body data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-17" data-genuitec-path="/portfolio/src/main/webapp/WEB-INF/views/board/list.jsp">
-	<div class="container-fluid text-center" data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-17" data-genuitec-path="/portfolio/src/main/webapp/WEB-INF/views/board/list.jsp">
+</head>
+<body>
+	<div class="container-fluid text-center">
 		<div class="row content">
 			<div class="col-sm-2">
 				<div class="panel panel-default">
@@ -43,7 +43,7 @@
 					</c:forEach>
 				</table>
 				
-				<span style="float: left; margin-left: 30%">
+				<div class="form-group">
 						 <select name="search">
 								<option ${page.search eq 'all' ? 'selected' : '' } value="all">전체</option>
 								<option ${page.search eq 'title' ? 'selected' : '' }
@@ -52,14 +52,14 @@
 									value="content">내용</option>
 								<option ${page.search eq 'writer' ? 'selected' : '' }
 									value="writer">작성자</option>
-						</select> <input type="text" name="keyword" value="${page.keyword }"
-							style="width: 350px; vertical-align: top;" /> <a
+						</select> <input type="text" class="form-control" name="keyword" value="${page.keyword }"
+							 /> <a
 							class="btn btn-success btn-sm" onclick="$('form').submit()">검색</a>
 							<c:if test="${!empty login_info }">
 							<a class="btn btn-success btn-sm" style="float: right;"
 								onclick="location='new.bo'">글쓰기</a>
 						</c:if>
-						</span>
+						</div>
 						<form method="post" action="list.bo" id="list">
 					<p id="list-top">
 						

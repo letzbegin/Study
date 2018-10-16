@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style type="text/css">
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -43,7 +44,7 @@
 								 <a type="button" class="btn btn-primary" href="#use10">가정상비약</a>
 							</div></th>
 					</tr>
-					<tr>
+					<!-- <tr>
 						<td><img id="use00" src="img/pillnon/pillnon00.gif"></td>
 					</tr>
 					<tr>
@@ -78,7 +79,7 @@
 					</tr>
 					<tr>
 						<td><a href="#">위로가기</a></td>
-					</tr>
+					</tr> -->
 				</table>
 			</div>
 			<div class="col-sm-2 sidenav">

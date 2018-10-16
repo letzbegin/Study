@@ -10,7 +10,7 @@
 <style type="text/css">
 .rolling_panel {
 	position: relative;
-	width: 800px;
+	width: 400px;
 	height: 100px;
 	margin: 0 auto;
 	padding: 0;
@@ -26,7 +26,7 @@
 
 .rolling_panel ul li {
 	float: left;
-	width: 800px;
+	width: 400px;
 	height: 100px;
 }
 </style>
@@ -40,7 +40,7 @@
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="home">${login_info.name }</a>
+				<a class="navbar-brand" href="home">어서오세약</a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-right">
@@ -48,6 +48,7 @@
 					<li><a href="pillnon">의약품정보</a></li>
 					<li><a href="list.bo">게시판</a></li>
 					<li><a href="guide">사용가이드</a></li>
+					<li><a href="webrtc">WebRTC</a></li>
 					<li>	
 						<c:if test="${!empty login_info }">
 						<a id="login_tl" href="" onclick="go_logout()">${login_info.name }</a>
