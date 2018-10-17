@@ -35,7 +35,7 @@
       <div class="modal-content">
         <div class="modal-header" style="padding:35px 50px;">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4><span class="glyphicon glyphicon-lock"></span> 약국 리스트</h4>
+          <h4><span class="glyphicon glyphicon-list-alt"></span> 약국 리스트</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
           <div id="public-data" style="margin: 0 auto;"></div>
@@ -43,8 +43,7 @@
         <div class="modal-footer">
         	<div id="popup"></div>
         	<div id="googleMap" style="height:400px;width:100%;" onclick="fade_map()"></div>
-				<div id="popup-background" onclick="fade_map()"></div>
-          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+          <button type="submit" class="btn btn-danger btn-default pull-right" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
         </div>
       </div>
     </div>
@@ -73,7 +72,7 @@
 			position : myLatLng,
 			title : pharmacy_name
 		});
-		marker.serMap(map);
+		marker.setMap(map);
 	}
 	function fade_map() {
 		$('#popup').css('display', 'none');
@@ -106,6 +105,8 @@
 			}
 		});
 	} 
+	
+	
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsrerDHJrp9Wu09Ij7MUELxCTPiYfxfBI"></script>
 

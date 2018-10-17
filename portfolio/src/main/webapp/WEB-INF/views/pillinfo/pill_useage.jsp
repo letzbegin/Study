@@ -7,18 +7,20 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
+
 	<div class="container-fluid text-center">
 		<div class="row content">
-			<div class="col-sm-3 sidenav">
-				<p>
-					<a href="pillnon">처방전 없이 살수 있는 의약품</a>
-				</p>
-				<p>
-					<a href="pillusage" style="background: aqua;">복용법</a>
-				</p>
+			<div class="col-sm-2 sidenav">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<a href="pillnon">처방전 없이 살수 있는 의약품</a>
+					</div>
+					<div class="panel-heading">
+						<a href="pillusage">복용법</a>
+					</div>
+				</div>
 			</div>
-			<div class="col-sm-6 text-left">
+			<div class="col-sm-8 text-left">
 				<table class="table ">
 					<tr>
 						<th><h2>의약품 복용법</h2>
@@ -63,12 +65,10 @@
 					</tr>
 					<tr>
 						<td><a href="#" style="align: right;">위로가기</a></td>
-
 					</tr>
-
 				</table>
 			</div>
-			<div class="col-sm-3 sidenav">
+			<div class="col-sm-2 sidenav">
 				<div class="well">
 					<p>ADS</p>
 				</div>

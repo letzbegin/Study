@@ -10,8 +10,8 @@ import java.net.URLEncoder;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,14 +20,11 @@ import data.vo.SidoVo;
 
 @Controller
 public class DataController {
-	private Log log = LogFactory.getLog(DataController.class);
-	private String ServiceKey2 
+	private Logger log = LoggerFactory.getLogger(DataController.class);
+	private String ServiceKey2
 	= "FPgj2NXbJw46TcGkmAfZEiYFDbxilys7KLjk3KaB7AfeJE00ZhPNM0M8unwbsI69fSmT8SNfVEimE6ZZ2U14hA%3D%3D"; 
-	private String ServiceKey 
+	private String ServiceKey_
 	="J%2BE1EgGTLsmQ14rplf4VnZtgedUCXFme08XZ%2BcX%2FTkn4Vilo9Etb29ViX8R6RLJfl0QJGiBACnZXeVJw1kQtvw%3D%3D"; 
-
-	private String animal_url 
-		= "http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/";
 
 	/*//시군구정보조회 요청
 	@ResponseBody @RequestMapping(value="/data/animal/sigungu",
@@ -99,10 +96,84 @@ public class DataController {
 		log.info("선택한 시도 이름"+request.getParameter("sido"));
 		log.info("========================================");
 		String sido = request.getParameter("sido");
-		SidoVo vo = new SidoVo();
+		return sidochecker(sido, session);
+	}
+	
+	
+	//약국정보조회처리 요청
+	@ResponseBody @RequestMapping(value="/data/pharmacy",
+				produces="application/text; charset=utf-8")
+	public String pharmacy(HttpServletRequest request ,HttpSession session){
+		StringBuilder url 
+//			= new StringBuilder("http://apis.data.go.kr/B551182/pharmacyInfoService/getParmacyBasisList");
+		= new StringBuilder("http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyListInfoInqire");
+		log.info("====================================================");
+		if(request.getParameter("sido")!=null){
+			session.setAttribute("sido", request.getParameter("sido"));
+		}
+		log.info("조회하고자 하는 시,도:"+session.getAttribute("sido"));
+		log.info("조회하고자 하는 군,구:"+request.getParameter("gungu"));
+		log.info("====================================================");
+		try {
+			url.append("?ServiceKey=" +  ServiceKey_);
+//			url.append("?ServiceKey=" + URLEncoder.encode( ServiceKey, "utf-8"));
+			url.append("&Q0="+ URLEncoder.encode( session.getAttribute("sido").toString(), "utf-8") );
+			url.append("&Q1="+ URLEncoder.encode(request.getParameter("gungu"), "utf-8") );
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+//			e.printStackTrace();
+		}
+		url.append("&pageNo=1");
+		url.append("&numOfRows=10");
+		String result = url.toString();
+		log.info("================================================");
+		log.info("조회주소"+result);
+		log.info("================================================");
 		
+		return public_data(result);
+	}
+	
+	private String public_data(String result){
+		log.info("===========================================================");
+		log.info("공공데이터 처리를 시작합니다");
+		try{
+		HttpURLConnection conn 
+			= (HttpURLConnection)new URL(result).openConnection();
+		conn.setRequestMethod("GET");
+		conn.setRequestProperty("Content-type", "application/json");
+		BufferedReader rd;
+		if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
+			log.info("conn.getResponseCode():" + conn.getResponseCode());
+            rd = new BufferedReader(new InputStreamReader(conn.getInputStream(), "utf-8"));
+            
+        } else {
+        	log.info("conn.getResponseCode():" + conn.getResponseCode());
+            rd = new BufferedReader(new InputStreamReader(conn.getErrorStream(), "utf-8"));
+        }
+		log.info("===========================================================");
+        StringBuilder sb = new StringBuilder();
+        String line;
+        while ((line = rd.readLine()) != null) {
+            sb.append(line);
+            log.info("XML형"+line);
+//            log.info(rd.readLine()); --해당 문장을 실행시 출력 데이터에 오류가 발생
+        }
+		
+        rd.close();
+        conn.disconnect();
+        result = sb.toString();
+        log.info("====================================================");
+        log.info("조회된데이터:"+result );
+        log.info("====================================================");
+        
+		}catch(Exception e){}
+		return result;
+	}
+	
+	private String[] sidochecker(String sido,HttpSession session) {
+		SidoVo vo = new SidoVo();
 		String[] list = null;
-		if(sido.equals("seoul")){
+		if(sido.equals("Seoul")){
 			list = vo.getSeoul();
 			session.setAttribute("sido", "서울특별시");
 			log.info("선택한 시도 길이"+list.length);
@@ -189,72 +260,5 @@ public class DataController {
 		}
 		log.info("========================================");
 		return list;
-	}
-	
-	private String public_data(String result){
-		log.info("===========================================================");
-		log.info("공공데이터 처리를 시작합니다");
-		try{
-		HttpURLConnection conn 
-			= (HttpURLConnection)new URL(result).openConnection();
-		conn.setRequestMethod("GET");
-		conn.setRequestProperty("Content-type", "application/json");
-		BufferedReader rd;
-		if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
-			log.info("conn.getResponseCode():" + conn.getResponseCode());
-            rd = new BufferedReader(new InputStreamReader(conn.getInputStream(), "utf-8"));
-            
-        } else {
-        	log.info("conn.getResponseCode():" + conn.getResponseCode());
-            rd = new BufferedReader(new InputStreamReader(conn.getErrorStream(), "utf-8"));
-        }
-		log.info("===========================================================");
-		
-        StringBuilder sb = new StringBuilder();
-        String line;
-        while ((line = rd.readLine()) != null) {
-            sb.append(line);
-            log.info("XML형"+rd.readLine());
-        }
-		
-        rd.close();
-        conn.disconnect();
-        result = sb.toString();
-        log.info("====================================================");
-        log.info("조회된데이터:"+result );
-        log.info("====================================================");
-        
-		}catch(Exception e){}
-		return result;
-	}
-	
-	//약국정보조회처리 요청
-	@ResponseBody @RequestMapping(value="/data/pharmacy",
-				produces="application/text; charset=utf-8")
-	public String pharmacy(HttpServletRequest request ,HttpSession session){
-		StringBuilder url 
-//			= new StringBuilder("http://apis.data.go.kr/B551182/pharmacyInfoService/getParmacyBasisList");
-		= new StringBuilder("http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyListInfoInqire");
-		log.info("====================================================");
-		log.info("조회하고자 하는 시,도:"+session.getAttribute("sido"));
-		log.info("조회하고자 하는 군,구:"+request.getParameter("gungu"));
-		log.info("====================================================");
-		try {
-			url.append("?ServiceKey=" +  ServiceKey);
-//			url.append("?ServiceKey=" + URLEncoder.encode( ServiceKey, "utf-8"));
-			url.append("&Q0="+ URLEncoder.encode( session.getAttribute("sido").toString(), "utf-8") );
-			url.append("&Q1="+ URLEncoder.encode(request.getParameter("gungu"), "utf-8") );
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-//			e.printStackTrace();
-		}
-		url.append("&pageNo=1");
-		url.append("&numOfRows=10");
-		String result = url.toString();
-		log.info("================================================");
-		log.info("조회주소"+result);
-		log.info("================================================");
-		
-		return public_data(result);
 	}
 }

@@ -1,6 +1,0 @@
-package board.dao;
-
-public interface BoardDAO {
-	public String getTiem();
-	public void insertMember();
-}

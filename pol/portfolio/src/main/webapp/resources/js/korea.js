@@ -236,8 +236,15 @@ for (var i = 0; i < regions.length; i++) {
 				console.log(list);
 				
 				for(var i = 0 ; i < list.length; i++){
-					tag += "<tr><td ><button class='btn btn-primary' value='"+list[i]+"' onclick='go_search(this.value)'>"+list[i]+"</button></td></tr>"	
+					if(i%4==0){
+						tag += "<tr>"
+					}
+					tag += "<td><button class='btn btn-default' style='width : 80px;' value='"+list[i]+"' onclick='go_search(this.value)'>"+list[i]+"</button></td>"	
+					if(i%4==3&&i!=0){
+						tag += "</tr>"
+					}
 				}
+				tag += "</tr>"
 				tag +="</table>"
 				
 				$('#sido-data').html(tag);
