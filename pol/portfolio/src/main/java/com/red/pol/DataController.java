@@ -14,6 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import data.vo.SidoVo;
@@ -103,7 +104,7 @@ public class DataController {
 	//약국정보조회처리 요청
 	@ResponseBody @RequestMapping(value="/data/pharmacy",
 				produces="application/text; charset=utf-8")
-	public String pharmacy(HttpServletRequest request ,HttpSession session){
+	public String pharmacy(HttpServletRequest request ,HttpSession session, @RequestParam(defaultValue="1") String pageNo){
 		StringBuilder url 
 //			= new StringBuilder("http://apis.data.go.kr/B551182/pharmacyInfoService/getParmacyBasisList");
 		= new StringBuilder("http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyListInfoInqire");
@@ -111,19 +112,22 @@ public class DataController {
 		if(request.getParameter("sido")!=null){
 			session.setAttribute("sido", request.getParameter("sido"));
 		}
+		if(request.getParameter("gungu")!=null) {
+			session.setAttribute("gungu", request.getParameter("gungu"));
+		}
 		log.info("조회하고자 하는 시,도:"+session.getAttribute("sido"));
-		log.info("조회하고자 하는 군,구:"+request.getParameter("gungu"));
+		log.info("조회하고자 하는 군,구:"+session.getAttribute("gungu"));
 		log.info("====================================================");
 		try {
 			url.append("?ServiceKey=" +  ServiceKey_);
 //			url.append("?ServiceKey=" + URLEncoder.encode( ServiceKey, "utf-8"));
 			url.append("&Q0="+ URLEncoder.encode( session.getAttribute("sido").toString(), "utf-8") );
-			url.append("&Q1="+ URLEncoder.encode(request.getParameter("gungu"), "utf-8") );
+			url.append("&Q1="+ URLEncoder.encode( session.getAttribute("gungu").toString(), "utf-8") );
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 //			e.printStackTrace();
 		}
-		url.append("&pageNo=1");
+		url.append("&pageNo="+pageNo);
 		url.append("&numOfRows=10");
 		String result = url.toString();
 		log.info("================================================");
@@ -205,7 +209,7 @@ public class DataController {
 		}
 		else if(sido.equals("NorthJeolla")){
 			list =vo.getNorthJeolla();
-			session.setAttribute("sido", "전라남도");
+			session.setAttribute("sido", "전라북도");
 			log.info("선택한 시도 길이"+list.length);
 		}
 		else if(sido.equals("Gwangju")){

@@ -89,26 +89,6 @@ img {
 			[ ],
 		];
 	
-	function getlc() {
-		//사용가 위도와 경도를 가져옴
-		// Geolocation API에 액세스할 수 있는지를 확인
-		if (navigator.geolocation) {
-			//위치 정보를 얻기
-			navigator.geolocation.getCurrentPosition(function(pos) {
-				$('#latitude').html(pos.coords.latitude); // 위도
-				$('#longitude').html(pos.coords.longitude); // 경도
-
-				locations[0][0] ="나의현재위치";
-				locations[0][1] =pos.coords.latitude;
-				locations[0][2] =pos.coords.longitude;
-				console.log(locations[0]);
-				getlctn(pos.coords.latitude, pos.coords.longitude)
-			});
-		} else {
-			alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
-		}
-	}
-	
 	//위,경도를 기반으로 현재 나의 위치 정보를 가져옴
 	function getlctn(la, lo) {
 		$.ajax({
@@ -189,11 +169,29 @@ img {
 					})(marker, i));
 		}
 	}
+	
+	$(function getlc() {
+		//사용가 위도와 경도를 가져옴
+		// Geolocation API에 액세스할 수 있는지를 확인
+		if (navigator.geolocation) {
+			//위치 정보를 얻기
+			navigator.geolocation.getCurrentPosition(function(pos) {
+				$('#latitude').html(pos.coords.latitude); // 위도
+				$('#longitude').html(pos.coords.longitude); // 경도
 
-	getlc();
+				locations[0][0] ="나의현재위치";
+				locations[0][1] =pos.coords.latitude;
+				locations[0][2] =pos.coords.longitude;
+				console.log(locations[0]);
+				getlctn(pos.coords.latitude, pos.coords.longitude)
+			});
+		} else {
+			alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
+		}
+	});
+	
 // 	window.onload = loadScript;
 </script>
-
 <script
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsrerDHJrp9Wu09Ij7MUELxCTPiYfxfBI"></script>
 </html>

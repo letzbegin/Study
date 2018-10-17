@@ -1,5 +1,6 @@
 var rsr = Raphael('korea', '1000', '1064');
-
+rsr.setViewBox(0,0,1000,1064,true);
+rsr.setSize('100%', '100%');
 var regions = [];
 
 
