@@ -27,68 +27,6 @@ public class DataController {
 	private String ServiceKey_
 	="J%2BE1EgGTLsmQ14rplf4VnZtgedUCXFme08XZ%2BcX%2FTkn4Vilo9Etb29ViX8R6RLJfl0QJGiBACnZXeVJw1kQtvw%3D%3D"; 
 
-	/*//시군구정보조회 요청
-	@ResponseBody @RequestMapping(value="/data/animal/sigungu",
-						produces="application/text; charset=utf-8")
-	public String animal_sigungu( @RequestParam String sido){
-		StringBuilder url
-			= new StringBuilder( animal_url + "sigungu");
-		url.append("?ServiceKey=" + ServiceKey);
-		url.append("&upr_cd=" + sido);
-		return public_data(url.toString());
-	}
-	
-	//보호소목록조회 요청
-	@ResponseBody @RequestMapping(value="/data/animal/shelter",
-			produces="application/text; charset=utf-8")
-	public String animal_shelter(@RequestParam String sido,
-							@RequestParam String sigungu){
-		StringBuilder url 
-		= new StringBuilder( animal_url + "shelter");
-		url.append("?ServiceKey=" + ServiceKey );
-		url.append("&upr_cd=" + sido);
-		url.append("&org_cd=" + sigungu);
-		return public_data(url.toString());
-	}
-	
-	//유기동물목록조회 요청
-	@ResponseBody @RequestMapping(value="/data/animal/list", 
-			produces="application/text; charset=utf-8")
-	public String animal_list(@RequestBody HashMap<String, String> map){
-		StringBuilder url 
-			= new StringBuilder(animal_url + "abandonmentPublic");
-			
-		url.append("?ServiceKey=" + ServiceKey);
-		url.append("&upr_cd=" + map.get("sido"));
-		url.append("&org_cd=" + map.get("sigungu"));
-		url.append("&care_reg_no=" + map.get("shelter"));
-		url.append("&upkind=" + map.get("upkind") );
-		url.append("&kind=" + map.get("kind") );
-		String result = url.toString();
-		return public_data(result);
-	}
-	
-	//축종별 품종조회 요청
-	@ResponseBody @RequestMapping(value="/data/animal/kind",
-				produces="application/text; charset=utf-8")
-	public String kind(@RequestParam String upkind){
-		StringBuilder url = new StringBuilder( animal_url + "kind");
-		url.append("?ServiceKey=" + ServiceKey );
-		url.append("&up_kind_cd=" + upkind );
-		return public_data(url.toString());
-	}
-	
-	//유기동물시도조회 요청
-	@ResponseBody @RequestMapping(value="/data/aniaml/sido", 
-				produces="application/text; charset=utf-8")
-	public String sido(){
-		StringBuilder url 
-			= new StringBuilder(animal_url + "sido");
-		url.append("?ServiceKey=" + ServiceKey);
-		String result = url.toString();
-		return public_data(result);
-	}*/
-	
 	@ResponseBody
 	@RequestMapping("data/sidolist")
 	public String[] sidolist(HttpServletRequest request, HttpSession session){
@@ -104,7 +42,7 @@ public class DataController {
 	//약국정보조회처리 요청
 	@ResponseBody @RequestMapping(value="/data/pharmacy",
 				produces="application/text; charset=utf-8")
-	public String pharmacy(HttpServletRequest request ,HttpSession session,
+	public String pharmacy(HttpServletRequest request ,HttpSession session, 
 			@RequestParam(defaultValue="1") String pageNo,
 			@RequestParam(defaultValue="10") String numOfRows){
 		StringBuilder url 

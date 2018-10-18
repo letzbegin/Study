@@ -98,10 +98,10 @@ video#localVideo {
 			<div class="col-sm-2">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<a href="pillnon">menu</a>
+						<a href="pillnon">처방전 없이 살수 있는 의약품</a>
 					</div>
 					<div class="panel-body">
-						<a href="pillusage">menu</a>
+						<a href="pillusage">복용법</a>
 					</div>
 				</div>
 			</div>

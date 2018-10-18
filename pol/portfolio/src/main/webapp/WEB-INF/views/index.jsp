@@ -82,7 +82,7 @@ img {
 	
 	//오늘 날짜의 정보
 	var today = new Date();
-	var date = today.getDay();
+	var date = today.getDay()+1;
 	var time = today.getHours()+""+today.getMinutes();
 	
 	function timer(){
@@ -114,7 +114,8 @@ img {
 			},
 			success : function(data) {
 				var loc = data;
-				var loc0 = loc["results"][0];
+				var loc0 = loc["results"][1];
+				console.log(loc0);
 				var loc1 = loc0["geometry"];
 				console.log("맵실행");
 				go_search(loc0["address_components"][3]["long_name"],
