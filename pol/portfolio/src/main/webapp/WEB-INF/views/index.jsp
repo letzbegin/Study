@@ -27,7 +27,7 @@ img {
 		<div class="carousel-inner" role="listbox" style="height: 600px;">
 
 			<div class="item active">
-				<img src="img/main/Img00.jpg" alt="Chania" style="margin: 0 auto;">
+				<img src="img/main/Img01.jpg" alt="Chania" style="margin: 0 auto;">
 				<div class="carousel-caption">
 					<h3>복용법</h3>
 					<p>올바른 복용법을 알려 드립니다</p>
@@ -66,9 +66,11 @@ img {
 	<ul>
 		<li>위도:<span id="latitude"></span></li>
 		<li>경도:<span id="longitude"></span></li>
+		<li>현재시간:<span id="timer"></span></li>
 	</ul>
 	<div id="googleMap" style="height: 400px; width: 100%;"></div>
 </body>
+<script	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsrerDHJrp9Wu09Ij7MUELxCTPiYfxfBI"></script>
 <script>
 	function loadScript() {
 		var script = document.createElement('script');
@@ -81,13 +83,26 @@ img {
 	//오늘 날짜의 정보
 	var today = new Date();
 	var date = today.getDay();
-	var time = today.getHours()+today.getMinutes();
+	var time = today.getHours()+""+today.getMinutes();
+	
+	function timer(){
+		$("#timer").html(time);
+	}
 	
 	//구글맵에 설정할 마커위치
 	//0번 배열은 유저의 위치
 	var locations = [
 			[ ],
 		];
+	
+	//유저의 마커색 설정
+	var image = {
+			path: google.maps.SymbolPath.CIRCLE,
+	        scale: 8.5,
+	        fillColor: "#F00",
+	        fillOpacity: 0.4,
+	        strokeWeight: 0.4
+        };
 	
 	//위,경도를 기반으로 현재 나의 위치 정보를 가져옴
 	function getlctn(la, lo) {
@@ -101,10 +116,9 @@ img {
 				var loc = data;
 				var loc0 = loc["results"][0];
 				var loc1 = loc0["geometry"];
-			
 				console.log("맵실행");
-				go_search(loc0["address_components"][4]["long_name"],
-						loc0["address_components"][3]["long_name"]);
+				go_search(loc0["address_components"][3]["long_name"],
+						loc0["address_components"][2]["long_name"]);
 			},
 			error : function(req, status) {
 				alert(status + ":" + req.status);
@@ -118,20 +132,25 @@ img {
 			url : 'data/pharmacy',
 			data : {
 				sido : si,
-				gungu : gun
+				gungu : gun,
+				numOfRows : 100
 			},
 			success : function(data) {
 				console.log(date)
 				console.log(time)
-				$(data).find('item').each(
-							function(idx) {
-								locations.push([]);
-								locations[idx+1][0] = $(this).find('dutyName').text();
-								locations[idx+1][1] = $(this).find('wgs84Lat').text();
-								locations[idx+1][2] = $(this).find('wgs84Lon').text();
-								console.log(locations[idx+1]);
-							});
-				initialize();
+// 				if(date==4){
+					$(data).find('item').each(
+									function(idx) {
+										if($(this).find('dutyTime'+date+'c').text()>=time&&$(this).find('dutyTime'+date+'s').text()<=time){
+											locations.push([]);
+											locations[idx+1][0] = $(this).find('dutyName').text();
+											locations[idx+1][1] = $(this).find('wgs84Lat').text();
+											locations[idx+1][2] = $(this).find('wgs84Lon').text();
+										}
+// 										console.log(locations[idx+1]);
+									});
+					initialize();
+// 				}
 			},
 			error : function(req, status) {
 				alert(status + ": " + req.status);
@@ -153,8 +172,24 @@ img {
 		var infowindow = new google.maps.InfoWindow();
 
 		var marker;
+		
+		//유저의 위치마커
+		marker = new google.maps.Marker({
+			position : new google.maps.LatLng(locations[0][1],locations[0][2]),
+			map : map,
+			icon: {
+		          url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+		          // This marker is 20 pixels wide by 32 pixels high.
+		          size: new google.maps.Size(20, 32),
+		          // The origin for this image is (0, 0).
+		          origin: new google.maps.Point(0, 0),
+		          // The anchor for this image is the base of the flagpole at (0, 32).
+		          anchor: new google.maps.Point(0, 32)
+		        }
+		});
+		
 
-		for (var i = 0; i < locations.length; i++) {
+		for (var i = 1; i < locations.length; i++) {
 			marker = new google.maps.Marker({
 				position : new google.maps.LatLng(locations[i][1],locations[i][2]),
 				map : map
@@ -182,6 +217,7 @@ img {
 				locations[0][0] ="나의현재위치";
 				locations[0][1] =pos.coords.latitude;
 				locations[0][2] =pos.coords.longitude;
+				timer();
 				console.log(locations[0]);
 				getlctn(pos.coords.latitude, pos.coords.longitude)
 			});
@@ -192,6 +228,5 @@ img {
 	
 // 	window.onload = loadScript;
 </script>
-<script
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsrerDHJrp9Wu09Ij7MUELxCTPiYfxfBI"></script>
+
 </html>

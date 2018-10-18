@@ -98,10 +98,10 @@ video#localVideo {
 			<div class="col-sm-2">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<a href="pillnon">처방전 없이 살수 있는 의약품</a>
+						<a href="pillnon">menu</a>
 					</div>
 					<div class="panel-body">
-						<a href="pillusage">복용법</a>
+						<a href="pillusage">menu</a>
 					</div>
 				</div>
 			</div>
@@ -140,5 +140,32 @@ video#localVideo {
 		</div>
 	</div>
 </body>
+<script type="text/javascript">
+function getIP(json) {
+	//외부ip를 가져옴 webRTC에 사용
+	$("#myip").text("My public IP address is: " + json.ip)
+	//사용가 위도와 경도를 가져옴
+	
+	$.ajax({
+			
+		url : 'ipcheck',
+		data : {
+			myip : json.ip, lat : la
+		},
+		success : function(data) {
+			//Json를 스크립트로 파싱
+			var mylocation = JSON.parse(data);
+			myMap(mylocation.latitude, mylocation.longitude, "나의 위치");
+			console.log("맵실행");
+			go_search(mylocation.region_name, mylocation.city);
+		},
+		error : function(req, status) {
+			alert(status + ":" + req.status);
+		}
+	});
+} 
 
+</script>
+<script type="application/javascript"
+	src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
 </html>

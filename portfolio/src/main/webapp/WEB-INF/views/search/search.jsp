@@ -12,7 +12,7 @@
 		<div class="row content">
 			<div class="col-sm-8">
 				<h2 id="region-name">선택지역</h2>
-				<div id="korea" style="width: 600px; height: 800px;"></div>
+				<div id="korea"></div>
 				<script type="text/javascript" src="js/raphael-min.js"></script>
 				<script type="text/javascript" src="js/korea.js"></script>
 			</div>
@@ -35,16 +35,19 @@
       <div class="modal-content">
         <div class="modal-header" style="padding:35px 50px;">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4><span class="glyphicon glyphicon-lock"></span> 약국 리스트</h4>
+          <h4><span class="glyphicon glyphicon-list-alt"></span> 약국 리스트</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
           <div id="public-data" style="margin: 0 auto;"></div>
+		    <ul class="pager">
+			    <li><a class="pre" href="#" onclick="go_page(-1)">Previous</a></li>
+			    <li><a href="#" onclick="go_page(1)">Next</a></li>
+		  </ul>
         </div>
         <div class="modal-footer">
         	<div id="popup"></div>
         	<div id="googleMap" style="height:400px;width:100%;" onclick="fade_map()"></div>
-				<div id="popup-background" onclick="fade_map()"></div>
-          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+          <button type="submit" class="btn btn-danger btn-default pull-right" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
         </div>
       </div>
     </div>
@@ -52,6 +55,7 @@
    
 </body>
 <script type="text/javascript">
+	var pageidx = 1;
 	function show_map(latitude, longitude, pharmacy_name) {
 // 		$('#popup').css('display', 'block');
 // 		$('#popup-background').css('display', 'block');
@@ -73,7 +77,7 @@
 			position : myLatLng,
 			title : pharmacy_name
 		});
-		marker.serMap(map);
+		marker.setMap(map);
 	}
 	function fade_map() {
 		$('#popup').css('display', 'none');
@@ -81,20 +85,62 @@
 	}
 	
 	function go_search(gun){
+		//페이지초기화
+		pageidx =1;
 		$.ajax({
 			url: 'data/pharmacy',
 			data : { gungu:gun},
 			success: function( data ){
-				var tag = "<table>";
+				$(".pre").css("visibility","hidden");
+				var tag = "<table class='table'>";
 				$(data).find('item').each(function(idx){
 					var map_data = $(this).find('wgs84Lat').text()+','
 								+  $(this).find('wgs84Lon').text()+',"'
 								+  $(this).find('dutyName').text()+'"';
 
-					tag += "<tr><td>"+ (idx+1) +"</td>"
+					tag += "<tr>"
+						+  "<td rowspan='2'>"+$(this).find('rnum').text() +"</td>"
 						+  "<td><a onclick='show_map("+ map_data+ ")'>"+$(this).find('dutyName').text() + "</a></td>"
 						+  "<td>"+$(this).find('dutyTel1').text() + "</td>"
-						+  "<td>"+$(this).find('dutyAddr').text() + "</td>";
+						+  "</tr>"
+						+  "<tr>"
+						+  "<td colspan='2'>"+$(this).find('dutyAddr').text() + "</td>";
+					tag += "</tr>";
+				});
+				tag += "<table>";
+				$('#public-data').html(tag);
+				$("#mypar").modal();
+			},
+			error: function(req, status){
+				alert(status+": "+req.status);
+			}
+		});
+	} 
+	
+	function go_page(pageNo){
+		pageidx+=pageNo;
+		if(pageidx<=1){
+			$(".pre").css("visibility","hidden");
+		}else{
+			$(".pre").css("visibility","visible");
+		}
+		$.ajax({
+			url: 'data/pharmacy',
+			data : { pageNo : pageidx},
+			success: function( data ){
+				var tag = "<table class='table'>";
+				$(data).find('item').each(function(idx){
+					var map_data = $(this).find('wgs84Lat').text()+','
+								+  $(this).find('wgs84Lon').text()+',"'
+								+  $(this).find('dutyName').text()+'"';
+
+					tag += "<tr>"
+						+  "<td rowspan='2'>"+$(this).find('rnum').text() +"</td>"
+						+  "<td><a onclick='show_map("+ map_data+ ")'>"+$(this).find('dutyName').text() + "</a></td>"
+						+  "<td>"+$(this).find('dutyTel1').text() + "</td>"
+						+  "</tr>"
+						+  "<tr>"
+						+  "<td colspan='2'>"+$(this).find('dutyAddr').text() + "</td>";
 					tag += "</tr>";
 				});
 				tag += "<table>";
