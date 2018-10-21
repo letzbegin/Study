@@ -14,7 +14,7 @@
 <h5>HTML작성...</h5>
 work 디렉토리의 index.html 에 video요소와 script요소를 추가합니다 .
 
-    
+~~~
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +28,7 @@ work 디렉토리의 index.html 에 video요소와 script요소를 추가합니�
 </body>
 </html>
 </div>
-
+~~~
 
 <h5>자바 스크립트 삽입</h5>
 js 폴더의 main.js 에 다음을 추가하십시오 .
