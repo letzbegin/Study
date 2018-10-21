@@ -8,7 +8,9 @@ git에 익숙하다면 GitHub에서 복제하여 코드 테이블의 코드를 �
 git clone https://github.com/googlecodelabs/webrtc-web
 또는 다음 버튼을 클릭하여 코드의 .zip 파일을 다운로드하십시오.
 
-소스 코드 다운로드
+<div>
+<a href="https://github.com/googlecodelabs/webrtc-web/archive/master.zip">소스 코드 다운로드</a>
+</div>
 
 다운로드 한 zip 파일을 엽니 다. 그러면 필요한 모든 리소스와 함께이 코드 랩의 각 단계에 대해 하나의 폴더가 포함 된 프로젝트 폴더 ( 적응 형 웹 미디어 )의 압축이 풀 립니다.
 
