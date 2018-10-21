@@ -2,12 +2,12 @@
 
 3 . 샘플 코드 얻기
 
-코드 다운로드
+<h2>코드 다운로드</h2>
 
 git에 익숙하다면 GitHub에서 복제하여 코드 테이블의 코드를 다운로드 할 수 있습니다.
 
 git clone https://github.com/googlecodelabs/webrtc-web
-또는 다음 버튼을 클릭하여 코드의 .zip 파일을 다운로드하십시오.
+또는 "소스코드 다운로드"을 클릭하여 코드의 .zip 파일을 다운로드하십시오.
 
 <p>
 <a href="https://github.com/googlecodelabs/webrtc-web/archive/master.zip">소스 코드 다운로드</a>
@@ -27,7 +27,7 @@ step-** 폴더는이 코드 랩의 각 단계에 대한 완성 된 버전이 포
 
 
 <br/>
-<input type="button" class="button" onclick="https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en">Chrome 용 웹 서버 설치</a>
+<a href="https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en">Chrome 용 웹 서버 설치</a>
 <br/>
 
 <img src="https://codelabs.developers.google.com/codelabs/webrtc-web/img/6ddeb4aee53c0f0e.png">
