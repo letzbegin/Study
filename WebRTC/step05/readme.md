@@ -148,6 +148,7 @@ trace('Added local stream to localPeerConnection.');
   3.onicecandidate네트워크 후보가 사용 가능 해지면 1 단계 의 핸들러가 호출됩니다.
   
   4.Alice는 직렬화된 후보 데이터를 Bob에게 보냅니다. 실제 응용 프로그램에서 이 프로세스( 시그널링 이라고도 함 )는 메시징 서비스를 통해 이루어지며   이후 단계에서 이를 수행하는 방법을 배우게됩니다. 물론 이 단계에서는 두 개의 RTCPeerConnection 객체가 같은 페이지에 있으며 외부 메시징이 필요없     이 직접 통신 할 수 있습니다.
+  
   5.Bob은 Alice로부터 후보 메시지를 받으면 원격 피어 설명에 후보를 추가하기 위해 `addIceCandidate()`를 호출합니다 .
   ~~~
 function handleConnection(event) {
