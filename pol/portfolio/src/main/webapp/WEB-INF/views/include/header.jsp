@@ -48,7 +48,7 @@
 					<li><a href="pillnon">의약품정보</a></li>
 					<li><a href="list.bo">게시판</a></li>
 					<li><a href="guide">사용가이드</a></li>
-					<li><a href="webrtc">WebRTC</a></li>
+					<li><a href="http://localhost:8980/">WebRTC</a></li>
 					<li>	
 						<c:if test="${!empty login_info }">
 						<a id="login_tl" href="" onclick="go_logout()">${login_info.name }</a>

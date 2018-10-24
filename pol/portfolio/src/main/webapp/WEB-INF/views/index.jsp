@@ -70,7 +70,8 @@ img {
 	</ul>
 	<div id="googleMap" style="height: 400px; width: 100%;"></div>
 </body>
-<script	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsrerDHJrp9Wu09Ij7MUELxCTPiYfxfBI"></script>
+<script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsrerDHJrp9Wu09Ij7MUELxCTPiYfxfBI"></script>
 <script>
 	function loadScript() {
 		var script = document.createElement('script');
@@ -79,31 +80,44 @@ img {
 				+ 'callback=initialize';
 		document.body.appendChild(script);
 	}
-	
+
 	//오늘 날짜의 정보
 	var today = new Date();
-	var date = today.getDay()+1;
-	var time = today.getHours()+""+today.getMinutes();
-	
-	function timer(){
+	var date = today.getDay() + 1;
+	var time =""; 
+	$(function() {
+		if (today.getHours() < 10) {
+			if (today.getMinutes() < 10) {
+				time= "0" + today.getHours() + "0" + today.getMinutes();
+			} else {
+				time= "0" + today.getHours() + "" + today.getMinutes();
+			}
+		} else {
+			if (today.getMinutes() < 10) {
+				time=  today.getHours() + "0" + today.getMinutes();
+			} else {
+				time=  today.getHours() + "" + today.getMinutes();
+			}
+		}
+	});
+
+	function timer() {
 		$("#timer").html(time);
-	}
-	
+	};
+
 	//구글맵에 설정할 마커위치
 	//0번 배열은 유저의 위치
-	var locations = [
-			[ ],
-		];
-	
+	var locations = [ [] ];
+
 	//유저의 마커색 설정
 	var image = {
-			path: google.maps.SymbolPath.CIRCLE,
-	        scale: 8.5,
-	        fillColor: "#F00",
-	        fillOpacity: 0.4,
-	        strokeWeight: 0.4
-        };
-	
+		path : google.maps.SymbolPath.CIRCLE,
+		scale : 8.5,
+		fillColor : "#F00",
+		fillOpacity : 0.4,
+		strokeWeight : 0.4
+	};
+
 	//위,경도를 기반으로 현재 나의 위치 정보를 가져옴
 	function getlctn(la, lo) {
 		$.ajax({
@@ -114,7 +128,7 @@ img {
 			},
 			success : function(data) {
 				var loc = data;
-				var loc0 = loc["results"][1];
+				var loc0 = loc["results"][0];
 				console.log(loc0);
 				var loc1 = loc0["geometry"];
 				console.log("맵실행");
@@ -126,7 +140,7 @@ img {
 			}
 		});
 	}
-	
+
 	//주변의 약국위치 정보를 가져와 배열에 저장
 	function go_search(si, gun) {
 		$.ajax({
@@ -137,62 +151,73 @@ img {
 				numOfRows : 100
 			},
 			success : function(data) {
-				console.log(date)
-				console.log(time)
-// 				if(date==4){
-					$(data).find('item').each(
-									function(idx) {
-										if($(this).find('dutyTime'+date+'c').text()>=time&&$(this).find('dutyTime'+date+'s').text()<=time){
-											locations.push([]);
-											locations[idx+1][0] = $(this).find('dutyName').text();
-											locations[idx+1][1] = $(this).find('wgs84Lat').text();
-											locations[idx+1][2] = $(this).find('wgs84Lon').text();
-										}
-// 										console.log(locations[idx+1]);
-									});
-					initialize();
-// 				}
+				console.log(date);
+				console.log(time);
+				// 				if(date==4){
+				$(data).find('item')
+						.each(
+								function(idx) {
+									console.log(idx + 1)
+									if ($(this).find('dutyTime' + date + 'c')
+											.text() >= time
+											&& $(this).find(
+													'dutyTime' + date + 's')
+													.text() <= time) {
+										locations.push([]);
+										locations[idx + 1][0] = $(this).find(
+												'dutyName').text();
+										locations[idx + 1][1] = $(this).find(
+												'wgs84Lat').text();
+										locations[idx + 1][2] = $(this).find(
+												'wgs84Lon').text();
+									}
+									// 										console.log(locations[idx+1]);
+								});
+				initialize();
+				// 				}
 			},
 			error : function(req, status) {
 				alert(status + ": " + req.status);
 			}
 		});
 	}
-	
+
 	//비동기 방식
 	// 	function myMap(latitude, longitude,name) {
 	function initialize() {
-	
+
 		//구글 api 위치설정
 		var map = new google.maps.Map(document.getElementById('googleMap'), {
 			zoom : 14,
-			center : new google.maps.LatLng(locations[0][1],locations[0][2]),
+			center : new google.maps.LatLng(locations[0][1], locations[0][2]),
 			mapTypeId : google.maps.MapTypeId.ROADMAP
 		});
 
 		var infowindow = new google.maps.InfoWindow();
 
 		var marker;
-		
+
 		//유저의 위치마커
-		marker = new google.maps.Marker({
-			position : new google.maps.LatLng(locations[0][1],locations[0][2]),
-			map : map,
-			icon: {
-		          url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-		          // This marker is 20 pixels wide by 32 pixels high.
-		          size: new google.maps.Size(20, 32),
-		          // The origin for this image is (0, 0).
-		          origin: new google.maps.Point(0, 0),
-		          // The anchor for this image is the base of the flagpole at (0, 32).
-		          anchor: new google.maps.Point(0, 32)
-		        }
-		});
-		
+		marker = new google.maps.Marker(
+				{
+					position : new google.maps.LatLng(locations[0][1],
+							locations[0][2]),
+					map : map,
+					icon : {
+						url : 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+						// This marker is 20 pixels wide by 32 pixels high.
+						size : new google.maps.Size(20, 32),
+						// The origin for this image is (0, 0).
+						origin : new google.maps.Point(0, 0),
+						// The anchor for this image is the base of the flagpole at (0, 32).
+						anchor : new google.maps.Point(0, 32)
+					}
+				});
 
 		for (var i = 1; i < locations.length; i++) {
 			marker = new google.maps.Marker({
-				position : new google.maps.LatLng(locations[i][1],locations[i][2]),
+				position : new google.maps.LatLng(locations[i][1],
+						locations[i][2]),
 				map : map
 			});
 
@@ -205,7 +230,7 @@ img {
 					})(marker, i));
 		}
 	}
-	
+
 	$(function getlc() {
 		//사용가 위도와 경도를 가져옴
 		// Geolocation API에 액세스할 수 있는지를 확인
@@ -215,9 +240,9 @@ img {
 				$('#latitude').html(pos.coords.latitude); // 위도
 				$('#longitude').html(pos.coords.longitude); // 경도
 
-				locations[0][0] ="나의현재위치";
-				locations[0][1] =pos.coords.latitude;
-				locations[0][2] =pos.coords.longitude;
+				locations[0][0] = "나의현재위치";
+				locations[0][1] = pos.coords.latitude;
+				locations[0][2] = pos.coords.longitude;
 				timer();
 				console.log(locations[0]);
 				getlctn(pos.coords.latitude, pos.coords.longitude)
@@ -226,8 +251,8 @@ img {
 			alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
 		}
 	});
-	
-// 	window.onload = loadScript;
+
+	// 	window.onload = loadScript;
 </script>
 
 </html>

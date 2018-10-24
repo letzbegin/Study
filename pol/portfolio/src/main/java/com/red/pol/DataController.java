@@ -128,7 +128,7 @@ public class DataController {
 			log.info("선택한 시도 길이"+list.length);
 		}
 		else if(sido.equals("NorthChungcheong")){
-			session.setAttribute("sido", "충청남도");
+			session.setAttribute("sido", "충청북도");
 			list = vo.getNorthChungcheong();
 			log.info("선택한 시도 길이"+list.length);
 		}

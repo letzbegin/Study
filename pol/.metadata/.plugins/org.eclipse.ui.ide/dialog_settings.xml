@@ -117,6 +117,7 @@
 		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\Administrator\Desktop\efea\WScams"/>
 			<item value="C:\Users\Administrator\Desktop\Study\portfolio"/>
 			<item value="C:\Users\Administrator\Desktop\Study\iot1"/>
 		</list>
