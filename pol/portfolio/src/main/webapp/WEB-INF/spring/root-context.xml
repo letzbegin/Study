@@ -15,9 +15,9 @@
 
 	<bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-		<property name="url" value="jdbc:oracle:thin:@221.144.97.134:1521/xe" />
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521/xe" />
 		<property name="username" value="iot" />
-		<property name="password" value="iot" />
+		<property name="password" value="0000" />
 	</bean>
 
 	<!-- Mybatis설정 -->

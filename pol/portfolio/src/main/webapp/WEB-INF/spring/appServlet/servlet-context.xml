@@ -20,6 +20,7 @@
 		up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="**" location="/resources/" />
 	<resources location="/resources/img/" mapping="/img/**" />
+	<resources location="/resources/img/chaptcha/" mapping="/chaptcha/**" />
 	<resources location="/resources/js/" mapping="/js/**" />
 
 

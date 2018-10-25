@@ -38,7 +38,6 @@ function usable(){
 // 		return;
 // 	}
 	if( !item_check('userid') ) return;
-	
 	$.ajax({
 		type:'post',
 		data: { userid: $('[name=userid]').val() },
@@ -72,7 +71,7 @@ function usable(){
 		<td class="left"><input type="text" name="name"/></td>
 	</tr>
 	<tr><th>*아이디</th>
-		<td class="left"><input type="text" name="userid" 
+		<td class="left"><input type="text" name="userid"
 				onkeyup="$('#id_check').val('n'); validate('userid')"/>
 		<input id="btn_id" onclick="usable()" type="button" value="중복확인"/><br>
 		<div class="valid" id="userid_status">아이디를 입력하세요(영문소문자, 숫자만 사용)</div>				
@@ -226,6 +225,7 @@ function after(date){
 }
 
 </script>
+<script type="text/javascript" src=" http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
 </body>
 </html>

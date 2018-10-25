@@ -68,14 +68,14 @@
 										<div class="modal-body">
 											<div class="input-group">
 												<span class="input-group-addon"><i
-													class="glyphicon glyphicon-user"></i></span> <input id="userid"
-													type="text" class="form-control" name="userid"
+													class="glyphicon glyphicon-user"></i></span> <input id="muserid"
+													type="text" class="form-control" name="muserid"
 													placeholder="아이디">
 											</div>
 											<div class="input-group">
 												<span class="input-group-addon"><i
-													class="glyphicon glyphicon-lock"></i></span> <input id="userpwd"
-													type="password" class="form-control" name="userpwd"
+													class="glyphicon glyphicon-lock"></i></span> <input id="muserpwd"
+													type="password" class="form-control" name="muserpwd"
 													placeholder="비밀번호">
 											</div>
 										</div>
@@ -209,14 +209,14 @@
 			url : 'login',
 			type : 'post',
 			data : {
-				userid : $('#userid').val(),
-				userpwd : $('#userpwd').val()
+				userid : $('#muserid').val(),
+				userpwd : $('#muserpwd').val()
 			},
 			success : function(data) {
 				if (data == "fail") {
 					alert("아이디 또는 비밀번호가 다릅니다!");
-					$('#userid').val('');
-					$('#userpwd').val('');
+					$('#muserid').val('');
+					$('#muserpwd').val('');
 				} else {
 					alert("로그인에 성공하셨습니다");
 					location.reload();
