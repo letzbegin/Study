@@ -9,6 +9,7 @@
   + [강의자료 다운로드](http://maven.egovframe.kr/publist/HDD1/public/edu/textbook/01%EA%B0%95_%ED%91%9C%EC%A4%80%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%20%EA%B0%9C%EC%9A%94.pdf)
   
 ### 2. 개발환경	
+
 + 2강. 개발환경 소개 및 구현도구, 개인빌드
   + 개발환경 개요
   + 구현도구
@@ -23,16 +24,17 @@
     +[교육자료 다운로드](http://maven.egovframe.kr/publist/HDD1/public/edu/textbook/03%EA%B0%95_%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD_%ED%98%95%EC%83%81%EA%B4%80%EB%A6%AC%2CCI%EC%84%9C%EB%B2%84%20.pdf)
     
 ### 3. 실행환경	
+
 + 4강. 실행환경 소개 및 공통기반 – IoC
   + 실행환경 소개
   + 공통기반 레이어
   + [교육자료 다운로드](http://maven.egovframe.kr/publist/HDD1/public/edu/textbook/04%EA%B0%95_%EC%8B%A4%ED%96%89%ED%99%98%EA%B2%BD_%EA%B5%90%EC%9C%A1%EA%B5%90%EC%9E%AC(%EC%8B%A4%ED%96%89%ED%99%98%EA%B2%BD%EC%86%8C%EA%B0%9C%2C%EA%B3%B5%ED%86%B5%EA%B8%B0%EB%B0%98IOC).pdf)
 
-+	5강. 공통기반레이어 AOP, ID Generation, Logging
++ 5강. 공통기반레이어
   + AOP
   + ID Generation
   + Logging
-  +[교육자료 다운로드](http://maven.egovframe.kr/publist/HDD1/public/edu/textbook/05%EA%B0%95_%EC%8B%A4%ED%96%89%ED%99%98%EA%B2%BD_%EA%B5%90%EC%9C%A1%EA%B5%90%EC%9E%AC(%EA%B3%B5%ED%86%B5%EA%B8%B0%EB%B0%98AOP%2Clogging%2CID%EC%A0%9C%EB%84%88%EB%A0%88%EC%9D%B4%EC%85%98).pdf)
+
 + 6강. 데이터처리레이어
   + 개요
   + Data Source
@@ -53,6 +55,7 @@
     + Internationalization
     + Ajax Support
     + Validation	 교육자료 다운로드(8강. 화면처리레이어)
+    
 ### 4. 모바일
 
 + 9강. 모바일 표준프레임워크 실행환경 모바일웹
