@@ -48,18 +48,20 @@
   +  eGovFrame Batch 제공기능
   +  참고자료	 교육자료 다운로드(7강. 배치처리레이어)
 + 8강. 화면처리레이어
-  1. 개요
-  2. MVC
-  3. Internationalization
-  4. Ajax Support
-  5. Validation	 교육자료 다운로드(8강. 화면처리레이어)
+    +  개요
+    + MVC
+    + Internationalization
+    + Ajax Support
+    + Validation	 교육자료 다운로드(8강. 화면처리레이어)
+### 4. 모바일
+
 + 9강. 모바일 표준프레임워크 실행환경 모바일웹
-  1. 개요
-  2. 모바일 어플리케이션
-  3. 전자정부 모바일 표준프레임워크 구성
-  4. Web Resource
-  5. 모바일 웹
-  6. UX Component	 교육자료 다운로드(9강. 모바일 표준프레임워크 실행환경 모바일웹)
+    + 개요
+    + 모바일 어플리케이션
+    + 전자정부 모바일 표준프레임워크 구성
+    + Web Resource
+    + 모바일 웹
+    + UX Component	 교육자료 다운로드(9강. 모바일 표준프레임워크 실행환경 모바일웹)
 +	10강. 모바일 표준프레임워크 실행환경 Device API
-  1. 모바일 하이브리드 어플리케이션
-  2. Device API
+    + 모바일 하이브리드 어플리케이션
+    + Device API
