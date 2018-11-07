@@ -24,7 +24,7 @@
 >  + Weaving
 >    + pointcut에 의해서 결정된 joinpoint에 지정된 advice를 삽입하는 
 >    + 기존 코드에 영향을 주지 않으면서, 특정 코드를 삽입하게 해주는 핵심 처리과정
-> +진행단계 pointcut > joinpoint > advice > weaving
+> + 설정단계 pointcut > aspect > advice > weaving
     
   + Weaving 방식
     + 컴파일시 : _별도의 컴파일러_ 를 이용 Aspect가 적용된 __바이너리를 만드는 방식__
