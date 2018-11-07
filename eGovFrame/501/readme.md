@@ -31,7 +31,7 @@
     + 클래스 로딩 시 : 별도의 Agent를 이용 JVM이 클래스를 _로딩_ 할때 __바이너리 정보를 변경__
     + 런타임 시 : __프록시__ 를 이용하여 AOP를 지원하는 방식(스프링에서 쓰는 방식)
     
-##Spring AOP
+## Spring AOP
 + 방식
   + @AspectJ annotaion 이용
   + XML Schema를 이용(실습예제) - AOP선언을 한눈에 알수 있다
