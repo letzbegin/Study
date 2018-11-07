@@ -22,39 +22,44 @@
     + CI
     +[교육자료 다운로드](http://maven.egovframe.kr/publist/HDD1/public/edu/textbook/03%EA%B0%95_%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD_%ED%98%95%EC%83%81%EA%B4%80%EB%A6%AC%2CCI%EC%84%9C%EB%B2%84%20.pdf)
     
-Ⅲ. 실행환경	교육자료 샘플 캡쳐(4강. 실행환경 소개 및 공통기반 – IoC)	4강. 실행환경 소개 및 공통기반 – IoC
-  1. 실행환경 소개
-  2. 공통기반 레이어	 교육자료 다운로드(4강. 실행환경 소개 및 공통기반 – IoC)
-교육자료 샘플 캡쳐(5강. 공통기반레이어 AOP, ID Generation, Logging)	5강. 공통기반레이어 AOP, ID Generation, Logging
-  1. AOP
-  2. ID Generation
-  3. Logging	 교육자료 다운로드(5강. 공통기반레이어 AOP, ID Generation, Logging)
-교육자료 샘플 캡쳐(6강. 데이터처리레이어)	6강. 데이터처리레이어
-  1. 개요
-  2. Data Source
-  3. Data Access iBatis, MyBatis
-  4. Transaction	 교육자료 다운로드(6강. 데이터처리레이어)
-교육자료 샘플 캡쳐(7강. 배치처리레이어)	7강. 배치처리레이어
-  1. 개요
-  2. Batch 구성요소
-  3. Spring Batch 2.x
-  4. Batch Processing
-  5. Batch Support
-  6. eGovFrame Batch 제공기능
-  7. 참고자료	 교육자료 다운로드(7강. 배치처리레이어)
-교육자료 샘플 캡쳐(8강. 화면처리레이어)	8강. 화면처리레이어
+### 3. 실행환경	
++ 4강. 실행환경 소개 및 공통기반 – IoC
+  + 실행환경 소개
+  + 공통기반 레이어
+  + [교육자료 다운로드](http://maven.egovframe.kr/publist/HDD1/public/edu/textbook/04%EA%B0%95_%EC%8B%A4%ED%96%89%ED%99%98%EA%B2%BD_%EA%B5%90%EC%9C%A1%EA%B5%90%EC%9E%AC(%EC%8B%A4%ED%96%89%ED%99%98%EA%B2%BD%EC%86%8C%EA%B0%9C%2C%EA%B3%B5%ED%86%B5%EA%B8%B0%EB%B0%98IOC).pdf)
+
++	5강. 공통기반레이어 AOP, ID Generation, Logging
+  + AOP
+  + ID Generation
+  + Logging
+  +[교육자료 다운로드](http://maven.egovframe.kr/publist/HDD1/public/edu/textbook/05%EA%B0%95_%EC%8B%A4%ED%96%89%ED%99%98%EA%B2%BD_%EA%B5%90%EC%9C%A1%EA%B5%90%EC%9E%AC(%EA%B3%B5%ED%86%B5%EA%B8%B0%EB%B0%98AOP%2Clogging%2CID%EC%A0%9C%EB%84%88%EB%A0%88%EC%9D%B4%EC%85%98).pdf)
++ 6강. 데이터처리레이어
+  + 개요
+  + Data Source
+  + Data Access iBatis, MyBatis
+  + Transaction	 
+  +[교육자료 다운로드](6강. 데이터처리레이어)
++ 7강. 배치처리레이어
+  + 개요
+  + Batch 구성요소
+  +  Spring Batch 2.x
+  +  Batch Processing
+  +  Batch Support
+  +  eGovFrame Batch 제공기능
+  +  참고자료	 교육자료 다운로드(7강. 배치처리레이어)
++ 8강. 화면처리레이어
   1. 개요
   2. MVC
   3. Internationalization
   4. Ajax Support
   5. Validation	 교육자료 다운로드(8강. 화면처리레이어)
-Ⅳ. 모바일	교육자료 샘플 캡쳐(9강. 모바일 표준프레임워크 실행환경 모바일웹)	9강. 모바일 표준프레임워크 실행환경 모바일웹
++ 9강. 모바일 표준프레임워크 실행환경 모바일웹
   1. 개요
   2. 모바일 어플리케이션
   3. 전자정부 모바일 표준프레임워크 구성
   4. Web Resource
   5. 모바일 웹
   6. UX Component	 교육자료 다운로드(9강. 모바일 표준프레임워크 실행환경 모바일웹)
-교육자료 샘플 캡쳐(10강. 모바일 표준프레임워크 실행환경 Device API)	10강. 모바일 표준프레임워크 실행환경 Device API
++	10강. 모바일 표준프레임워크 실행환경 Device API
   1. 모바일 하이브리드 어플리케이션
   2. Device API
