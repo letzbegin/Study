@@ -75,4 +75,21 @@ while (rs.next()) { assertEquals("x", rs.getString(1));
 }
 ```
 
+### Data Access
++ ibatis
++ mybatis
+
+__ibatis__
+
+구성요소|설명
+---|---
+SqlMapConfig XML File File |  iBatis 동작을 위한 DataSource, Data Mppaer 및 Thread
+SqlMap XML File | XML 방식으로 실행할 SQL문과 매핑 정보를 설정
+SQL Map |  iBatis는 PreparedStatement 인스턴스를 생성하고, 제공된 파라미터 객체를 사용해서 파라미터를 셋팅한 후, Statement를 실행하고 결과 객체를 생성
+Mapped Statement |  Parameter 객체와 Result 객체를 이용하여 SQL Statement로 치환 
+Parameter Object |  파마리터 객체는 JavaBean, Map, Primitive 객체로서, 입력값을 셋팅하기 위해 사용되는 객체
+Result Object | 결과 객체는 JavaBean, Map, Primitive 객체로서, 쿼리문의 결과값을 담는 객체
+
+
+
 
