@@ -103,7 +103,3 @@ Result Object | 결과 객체는 JavaBean, Map, Primitive 객체로서, 쿼리�
 7. aspect 설정
 8. service/dao 작성
 9. 맵핑 xml 작성
-
-1. 머리
-4. 뚝배기
-2. 다리
