@@ -95,12 +95,15 @@ Result Object | 결과 객체는 JavaBean, Map, Primitive 객체로서, 쿼리�
  __iBatis를 이용한 개발 순서__
  
 1. datasource 작성(properties는 common값에서 가져옴)
-+ transaction 작성
+
 3. slqMap 작성 (spring과 ibatis 연동)
 4. sql-map-config 설정 (쿼리문이 저장된 xml 연결)
-+ id gen 설정(오라클의 daul 테이블을 쓰기위한 설정)
+  + id gen 설정(오라클의 daul 테이블을 쓰기위한 설정)
 6. common 설정
 7. aspect 설정
 8. service/dao 작성
 9. 맵핑 xml 작성
 
+1. 머리
+4. 뚝배기
+2. 다리
