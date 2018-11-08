@@ -92,20 +92,15 @@ Result Object | 결과 객체는 JavaBean, Map, Primitive 객체로서, 쿼리�
 
 개발순서
 
-1. [iBatis 설정 1] SQL Mapping XML 파일 작성
-  + __실행할 SQL문과 관련 정보 설정__
-  + SELECT/INSERT/UPDATE/DELETE, Parameter/Result Object, Dynamic SQL 등
-2. [iBatis 설정 2] iBatis Configuration XML 파일 작성
-  + iBatis 동작에 필요한 옵션을 설정
-  + <sqlMap>: SQL Mapping XML 파일의 위치
-3. [스프링연동 설정] SqlMapClientFactoryBean 정의
-  + Spring와 iBatis 연동을 위한 설정
-  + 역할) iBatis 관련 메서드 실행을 위한 SqlMapClient 객체를 생성
-  + dataSource: DB Connection 생성
-  + configLocation: iBatis Configuration XML 파일의 위치
-  + mappingLocations: 모든 SQL Mapping XML 파일을 일괄 지정 가능
-4. DAO 클래스 작성
-  + 실행할 SQL문을 호출하기 위한 메서드 구현: SQL Mapping XML 내에 정의한 각 Statement id를 매개변수로 전달
-  + 규칙) SqlMapClientDaoSupport를 상속하는 EgovAbstractDAO 클래스를 상속받아 확장/구현
-
+ __iBatis를 이용한 개발 순서__
+ 
+1. datasource 작성(properties는 common값에서 가져옴)
++ transaction 작성
+3. slqMap 작성 (spring과 ibatis 연동)
+4. sql-map-config 설정 (쿼리문이 저장된 xml 연결)
++ id gen 설정(오라클의 daul 테이블을 쓰기위한 설정)
+6. common 설정
+7. aspect 설정
+8. service/dao 작성
+9. 맵핑 xml 작성
 
