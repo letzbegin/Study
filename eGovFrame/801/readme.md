@@ -16,7 +16,7 @@
 + dispatcherServlet
   + Front Controller, 웹요청과 응답의 생명주기를 관리
 + HandlerMapping
-  + 웹 요청시 해당 URL을 어떤 Controller가 처리 할지를 결정
+  + 웹 요청시 해당 URL을 어떤 Controller가 처리 할지를 결정 (inceptor를 통해 따로 처리 가능)
 + Controller
   + 비지니스 로직을 ModelandView에 반영
 + ModleandView
@@ -31,4 +31,12 @@
 + WebApplicationContext : client가 보는 화면을 구성하는 설정을 관리하는 파일 (DispatcherServlet에 의해 생성)
 + ApplicationContext : 나머지 service, DAO등을 관리하는 설정 파일 (ContextLoaderListener에 의해 생성)
 
-# 작업 순서
+# 작업 순서(변경 가능)
++ <context:component-scan/> 설정  (WebApplicationContext 또는 ApplicationContext 에 작성)
++ RequestMappingHandlerMapping 설정 (handler에 대한 상세 설명을 [이곳으로]())
+  + 사용법
+    + 생략
+    +  <mvc:annotation-driven/> 선언
+    +  RequestMappingHandlerMaping을 직접 선언하는 방법 
++ controller, service , dao등 설정
+
