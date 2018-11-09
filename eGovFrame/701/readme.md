@@ -11,6 +11,7 @@
 + commit/ rollback/ retry count 정보 제공
 + Qurtz, command line, web 등을 통한 실핼 지원
 
+![](https://github.com/letzbegin/Study/blob/master/eGovFrame/images/batch00.PNG)
 
 구분 | 설명
 ---|---
@@ -19,8 +20,18 @@ JobRepository | 수행되는Job에대한정보를담고있는저장소. Job이�
 Job | 실행시킬작업. 논리적인Job실행의개념. 
 JobParameter Batch | Job을실행하는데사용하는파라미터의집합으로Job이실행되는동안에Job을식별하거나Job에서참조 하는데이터로사용 
 JobInstance | 논리적인Job 실행(JobInstance=Job+JobParameter) 
-Step | Batch Job을구성하는독립적인하나의단계.Job은1개이상의Step으로 구성 실제Batch 처리과정을정의하고, 제어하는데필요한모든정를포함 Step의내용은전적으로개발자의선택에따라구성됨.
+Step | Batch Job을구성하는독립적인하나의단계.Job은1개이상의Step으로 구성 실제Batch 처리과정을정의하고, 제어하는데필요한모든정보를 포함 Step의내용은전적으로개발자의선택에따라구성됨.
 Item | 처리할데이터의가장작은구성요소. (예)파일의한줄, DB의한Row, Xml의 특정Element 
 ItemReader | Step안에서File 또는DB등에서Item을 읽어들임. 더이상읽어올Item이 없을때에는read() 메소드에서null값을 반환하며그전까지는순차적인값을리턴. 
 ItemWriter | Step안에서File 또는DB등으로Item을 저장.
 Item Processor | Item reader에서 읽어들인Item에 대하여필요한로직처리작업을수행.
+
+
+![](https://github.com/letzbegin/Study/blob/master/eGovFrame/images/batch00.PNG)
+
+Tier | 설명
+---|---
+Run Tier | • Scheduling과Application 실행담당 • Spring Batch에서는 Scheduling 기능을따로제공하지않고Quartz같은 외부모듈이나Cron을이용 하도록권고
+Job Tier | • 전체적인Job실행담당 • Job내의각Step들을지정한정책에따라순차적으로수행
+Application Tier | • Job을실행하는데필요한컴포넌트들로구성
+Data Tier | • Database, File 등물리적데이터소스와결합이이루어지는영역
