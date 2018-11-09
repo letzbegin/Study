@@ -24,7 +24,7 @@
   + step : job으로 들어온 작업에 대한 설정 파일(전반적인 흐름에 대한 설정이다 : 예) 수로  )
   + item : step의 대한 설정 파일 (흐름에 대한 세부 설정이다 : 예) 수로 방향)   )
   
-![](https://github.com/letzbegin/Study/blob/master/eGovFrame/images/batch01.PNG)
+![flow](https://github.com/letzbegin/Study/blob/master/eGovFrame/images/batch01.PNG)
 
 Tier | 설명
 ---|---
