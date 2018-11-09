@@ -9,7 +9,32 @@
 + Commit interval 지원
 + Retry, restart, skip 지원
 + commit/ rollback/ retry count 정보 제공
-+ Qurtz, command line, web 등을 통한 실핼 지원
++ Qurtz, command line, web 등을 통한 실행 지원
+
+### 전체 workflow 
++ JobRunner를 통해 처리 요청이 들어온다.
+  + _web방식, conmmand 방식으로 들어온 요청을 jobLauncher와 연결 시키는 역활_
++ jobLauncher 에서 job으로 인계
+  + _들어온 요청을 JobRepository에 요청(job)하여  정보를 받아와 job 실행_
++ job은 step으로 인계
+  +Batch 작업 자체를 의미
+    + jobParameter : 작업을 구별하기 위한 식별자
+    + jobinstance : job + jobparameter를 합친 실행 단위
++step은 item이란 설정값을 가지고 실행
+  + step : job으로 들어온 작업에 대한 설정 파일(전반적인 흐름에 대한 설정이다 : 예) 수로  )
+  + item : step의 대한 설정 파일 (흐름에 대한 세부 설정이다 : 예) 수로 방향)   )
+  
+![](https://github.com/letzbegin/Study/blob/master/eGovFrame/images/batch01.PNG)
+
+Tier | 설명
+---|---
+Run Tier | • Scheduling과Application 실행담당 • Spring Batch에서는 Scheduling 기능을따로제공하지않고Quartz같은 외부모듈이나Cron을이용 하도록권고
+Job Tier | • 전체적인Job실행담당 • Job내의각Step들을지정한정책에따라순차적으로수행
+Application Tier | • Job을실행하는데필요한컴포넌트들로구성
+Data Tier | • Database, File 등물리적데이터소스와결합이이루어지는영역
+  
+  
+  
 
 ![](https://github.com/letzbegin/Study/blob/master/eGovFrame/images/batch00.PNG)
 
@@ -27,11 +52,3 @@ ItemWriter | Step안에서File 또는DB등으로Item을 저장.
 Item Processor | Item reader에서 읽어들인Item에 대하여필요한로직처리작업을수행.
 
 
-![](https://github.com/letzbegin/Study/blob/master/eGovFrame/images/batch01.PNG)
-
-Tier | 설명
----|---
-Run Tier | • Scheduling과Application 실행담당 • Spring Batch에서는 Scheduling 기능을따로제공하지않고Quartz같은 외부모듈이나Cron을이용 하도록권고
-Job Tier | • 전체적인Job실행담당 • Job내의각Step들을지정한정책에따라순차적으로수행
-Application Tier | • Job을실행하는데필요한컴포넌트들로구성
-Data Tier | • Database, File 등물리적데이터소스와결합이이루어지는영역
