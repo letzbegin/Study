@@ -27,7 +27,7 @@ ItemWriter | Step안에서File 또는DB등으로Item을 저장.
 Item Processor | Item reader에서 읽어들인Item에 대하여필요한로직처리작업을수행.
 
 
-![](https://github.com/letzbegin/Study/blob/master/eGovFrame/images/batch00.PNG)
+![](https://github.com/letzbegin/Study/blob/master/eGovFrame/images/batch01.PNG)
 
 Tier | 설명
 ---|---
